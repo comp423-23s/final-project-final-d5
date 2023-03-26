@@ -31,6 +31,7 @@ class PostEntity(EntityBase):
             content=model.content,
             user=model.user,
             votes=model.votes,
+            timestamp=model.timestamp,
         )
 
     def to_model(self) -> Post:
@@ -39,6 +40,7 @@ class PostEntity(EntityBase):
             content=self.content,
             user=self.user,
             votes=self.votes,
+            timestamp=self.timestamp,
         )
 
     def update(self, model: Post) -> None:
