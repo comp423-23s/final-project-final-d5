@@ -8,4 +8,6 @@ class Post(BaseModel):
     id: int | None = None
     content: str
     user: User
+    votes: list[User]
+    timestamp: str
 
