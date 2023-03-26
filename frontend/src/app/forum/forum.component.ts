@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./forum.component.css']
 })
 export class ForumComponent {
-
+  public static Route = {
+    path: 'forum',
+    component: ForumComponent
+  };
 }

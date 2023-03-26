@@ -4,12 +4,14 @@ import { AppTitleStrategy } from './app-title.strategy';
 import { GateComponent } from './gate/gate.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.component';
+import { ForumComponent } from './forum/forum.component';
 
 
 const routes: Routes = [
   HomeComponent.Route,
   ProfileEditorComponent.Route,
   GateComponent.Route,
+  ForumComponent.Route,
   { path: 'admin', title: 'Admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 ];
 
