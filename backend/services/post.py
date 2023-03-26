@@ -3,7 +3,7 @@ from sqlalchemy import select, or_, func
 from sqlalchemy.orm import Session
 from ..database import db_session
 from ..models import User, Role, RoleDetails, Permission, Post
-from ..entities import RoleEntity, PermissionEntity, UserEntity
+from ..entities import RoleEntity, PermissionEntity, UserEntity, PostEntity
 from .permission import PermissionService, UserPermissionError
 
 class PostService:
