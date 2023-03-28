@@ -21,7 +21,7 @@ class PostEntity(EntityBase):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     content: Mapped[str] = mapped_column(String(64), nullable=False, default='')
     
-    user_id: Mapped[int] = mapped_column(ForeignKey('user.id'), nullable=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
     user: Mapped[UserEntity] = relationship("UserEntity",back_populates='posts')
 
     votes: Mapped[list[UserEntity]] = relationship(secondary=post_votes_table)
