@@ -34,7 +34,9 @@ class UserEntity(EntityBase):
     roles: Mapped[list['RoleEntity']] = relationship(secondary=user_role_table, back_populates='users')
     permissions: Mapped['PermissionEntity'] = relationship(back_populates='user')
     
+    #create Secondary table for posts???
     posts: Mapped[list['PostEntity']] = relationship(back_populates='user')
+    
     votes: Mapped[list['PostEntity']] =  relationship(secondary=post_votes_table, back_populates='votes')
     
 

@@ -9,7 +9,6 @@ from ..models import User
 from ..models import Post
 from .post_votes_entity import post_votes_table
 from .user_entity import UserEntity
-
 __authors__ = ['Kris Jordan']
 __copyright__ = 'Copyright 2023'
 __license__ = 'MIT'

@@ -64,6 +64,12 @@ class UserService:
         statement = statement.where(criteria).limit(10)
         entities = self._session.execute(statement).scalars()
         return [entity.to_model() for entity in entities]
+    
+    def findUser(self, _subject: User) -> UserEntity:
+        entity = select(UserEntity).filter_by(id==_subject.id).first()    
+        return entity
+
+
 
     def list(self, subject: User, pagination_params: PaginationParams) -> Paginated[User]:
         """List Users.
