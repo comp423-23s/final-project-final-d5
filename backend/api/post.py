@@ -7,12 +7,9 @@ api = APIRouter(prefix="/api/post")
 
 
 @api.post("", response_model=Post, tags=['Post'])
-def create(id: int, user: User, content: str, timestamp: str, post_svc: PostService = Depends()):
-    post = Post(
-        id = id,
-        user = user,
-        content = content, 
-        votes = [],
-        timestamp = timestamp
-    )
-    return post_svc.create(user, post)
+def create(post: Post, post_svc: PostService = Depends()):
+    return post_svc.create(post)
+
+@api.get("", response_model=list[Post], tags=['Post'])
+def getAll(post_svc: PostService = Depends()):
+    return post_svc.getAll()

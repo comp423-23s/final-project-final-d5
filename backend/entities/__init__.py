@@ -18,6 +18,7 @@ from .user_entity import UserEntity
 from .role_entity import RoleEntity
 from .permission_entity import PermissionEntity
 from .user_role_entity import user_role_table
+from .post_entity import PostEntity
 
 
 __authors__ = ["Kris Jordan"]

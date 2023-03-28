@@ -1,12 +1,13 @@
 '''User accounts for all registered users in the application.'''
 
 
-from sqlalchemy import Integer, String
+from sqlalchemy import Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import Self
 from .entity_base import EntityBase
 from .user_role_entity import user_role_table
 from ..models import User
+from .post_votes_entity import post_votes_table
 
 
 __authors__ = ['Kris Jordan']
@@ -32,6 +33,10 @@ class UserEntity(EntityBase):
 
     roles: Mapped[list['RoleEntity']] = relationship(secondary=user_role_table, back_populates='users')
     permissions: Mapped['PermissionEntity'] = relationship(back_populates='user')
+    
+    posts: Mapped[list['PostEntity']] = relationship(back_populates='user')
+    votes: Mapped[list['PostEntity']] =  relationship(secondary=post_votes_table, back_populates='votes')
+    
 
     @classmethod
     def from_model(cls, model: User) -> Self:
