@@ -3,11 +3,13 @@
 from pydantic import BaseModel
 from . import User
 
-
 class Post(BaseModel):
     id: int | None = None
     content: str
-    user: User
+    user: 'User'
     votes: list['User'] = []
     timestamp: str
+
+
+
 

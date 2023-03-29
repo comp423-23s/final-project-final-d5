@@ -5,10 +5,13 @@ from sqlalchemy import Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import Self
 from .entity_base import EntityBase
-from ..models import User
+#from ..models import User
 from ..models import Post
-from .post_votes_entity import post_votes_table
+from fastapi import Depends
 from .user_entity import UserEntity
+from .post_votes_entity import post_votes_table
+#from ..services import UserPostService
+
 __authors__ = ['Kris Jordan']
 __copyright__ = 'Copyright 2023'
 __license__ = 'MIT'
@@ -22,19 +25,23 @@ class PostEntity(EntityBase):
     
     user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
     user: Mapped[UserEntity] = relationship("UserEntity",back_populates='posts')
-
+ 
     votes: Mapped[list[UserEntity]] = relationship(secondary=post_votes_table)
 
     timestamp: Mapped[str] = mapped_column(String(64), nullable=False, default='')
 
     @classmethod
-    def from_model(cls, model: Post) -> Self:
+    def from_model(cls, model: Post, user: UserEntity ) -> Self:
+        #user_svc: UserPostService = Depends()
         return cls(
             id=model.id,
             content=model.content,
-            user = UserEntity.from_model(model.user),
-            votes= [UserEntity.from_model(vote) for vote in model.votes],
+            user = user,
+            votes= [],
             timestamp=model.timestamp,
+
+            #user_svc.findUser(model.user)
+            #[user_svc.findUser(vote) for vote in model.votes]
         )
 
     def to_model(self) -> Post:
@@ -49,3 +56,5 @@ class PostEntity(EntityBase):
 
     def update(self, model: Post) -> None:
         self.content = model.content
+
+

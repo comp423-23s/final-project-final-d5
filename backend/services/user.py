@@ -66,8 +66,10 @@ class UserService:
         return [entity.to_model() for entity in entities]
     
     def findUser(self, _subject: User) -> UserEntity:
-        entity = select(UserEntity).filter_by(id==_subject.id).first()    
-        return entity
+       # query = select(UserEntity).filter_by(id=_subject.id)
+        query = select(UserEntity).where(UserEntity.pid == _subject.pid)
+        user_entity: UserEntity = self._session.execute(query).scalar()
+        return user_entity
 
 
 
@@ -154,3 +156,4 @@ class UserService:
         entity.update(user)
         self._session.commit()
         return entity.to_model()
+    
