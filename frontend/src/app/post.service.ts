@@ -41,12 +41,12 @@ export class PostService {
         //                     })
         //                 )
         // return new_table
-        return this.http.get<Post[]>("/api/forum"); 
+        return this.http.get<Post[]>("/api/posts"); 
     }
 
     makePost(id: number, content: string, user: Profile, votes: [], timestamp: Date): Observable<Post> {
         let post: Post = {id, content, user, votes, timestamp};
-        return this.http.post<Post>("/api/forum/", post);
+        return this.http.post<Post>("/api/posts/", post);
     }
 
     // deletePost(id: number) {
