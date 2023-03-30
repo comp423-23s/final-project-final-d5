@@ -56,7 +56,6 @@ private onSuccess(profile: Profile | undefined): void {
     return;
   }
 
-
   this.postService
       .makePost(1, "blah", profile, [], new Date("2022-03-25"))
       .subscribe({
