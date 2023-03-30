@@ -11,6 +11,7 @@
       <tr *ngFor="let post of post$| async">
           <td>{{ post.content }}</td>
           <td>{{ post.user.first_name}}</td>
+          <td>{{ post.user.last_name}}</td>
           <td>{{ post.timestamp | date:'YYYY/MM/dd @ hh:MMaa' }}</td>
       </tr>
   </tbody>
