@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./viewforum.component.css']
 })
 export class viewforumComponent {
-  // public post$: Observable<Post[]>;
+  public post$: Observable<Post[]>;
 
-  // constructor(private postService: PostService) {
-  //   this.post$ = postService.getPosts()
-  // }
+  constructor(private postService: PostService) {
+    this.post$ = postService.getPosts()
+  }
 
 }

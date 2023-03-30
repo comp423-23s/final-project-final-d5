@@ -33,10 +33,11 @@ export class ForumComponent {
 
   onSubmit(): void {
     let form = this.form.value;
+    let formContent = form.content ?? "";
 
     this.profileService.profile$
       .subscribe({
-        next: (profile) => this.onSuccess(profile), 
+        next: (profile) => this.onSuccess(profile, formContent), 
         error: (err) => this.onError(err)
       });
 
@@ -48,20 +49,22 @@ export class ForumComponent {
     // we need to define onerror
 } 
 
-private onSuccess(profile: Profile | undefined): void {
+private onSuccess(profile: Profile | undefined, formContent: string): void {
   // this is where we have something in scope of type profile
+  // let current: new Date
+  let unique = Math.random() // generates unique post id
+  let date: Date = new Date() // generates date of successful form
   
   if (profile == undefined) {
     // handle this case better?
     return;
   }
 
-  this.postService
-      .makePost(1, "blah", profile, [], new Date("2022-03-25"))
-      .subscribe({
-        next: (post) => this.onSuccess(profile),
-        error: (err) => this.onError(err)
-      });
+  this.postService.makePost(unique, formContent, profile, [], date)
+      // .subscribe({
+      //   next: (post) => this.onSuccess(profile, formContent),
+      //   error: (err) => this.onError(err)
+      // });
 
   window.alert('Thank you for posting')
 
