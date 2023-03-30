@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class viewforumComponent {
   public post$: Observable<Post[]>;
+  public static Route = {
+    path: 'viewforum',
+    component: viewforumComponent
+  };
 
   constructor(private postService: PostService) {
     this.post$ = postService.getPosts()

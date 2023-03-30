@@ -33,8 +33,8 @@ export class ForumComponent {
 
   onSubmit(): void {
     let form = this.form.value;
-    let formContent = form.content ?? "";
-
+    let formContent = this.form.value.content ?? "";
+    console.log(form)
     this.profileService.profile$
       .subscribe({
         next: (profile) => this.onSuccess(profile, formContent), 
@@ -52,8 +52,8 @@ export class ForumComponent {
 private onSuccess(profile: Profile | undefined, formContent: string): void {
   // this is where we have something in scope of type profile
   // let current: new Date
-  let unique = Math.random() // generates unique post id
-  let date: Date = new Date() // generates date of successful form
+  let unique = Math.floor(Number(Math.random()*1000)) // generates unique post id
+  let date: string = "test date" // generates date of successful form
   
   if (profile == undefined) {
     // handle this case better?
@@ -61,17 +61,24 @@ private onSuccess(profile: Profile | undefined, formContent: string): void {
   }
 
   this.postService.makePost(unique, formContent, profile, [], date)
-      // .subscribe({
-      //   next: (post) => this.onSuccess(profile, formContent),
-      //   error: (err) => this.onError(err)
-      // });
+  .subscribe({
+    next: (post) => this.onSuccessMP(),
+    error: (err) => this.onError(err)
+  });
+  console.log(profile.pid)
+  
 
-  window.alert('Thank you for posting')
-
-  this.form.reset()
+  
 }
 
 private onError(error: Error): void {
 
   }
+
+  private onSuccessMP(){
+    
+    window.alert('Thank you for posting')
+    this.form.reset()
+  }
 }
+

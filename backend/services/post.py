@@ -19,8 +19,6 @@ class PostService:
         self._session.add(entity)
         self._session.commit()
         return entity.to_model()
-        user_entity = user_svc.findUser(post.user)
-        return None
     
     def getAll(self) -> list[Post]:
         query = select(PostEntity)

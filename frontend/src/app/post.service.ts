@@ -4,15 +4,25 @@ import { map, Observable, throwError } from 'rxjs';
 import { Profile } from './profile/profile.service';
 import { Role } from './role';
 
-export interface Post {
+
+//  these attributes will most likely change
+export interface User{
+    id: number;
+    pid: number;
+    onyen: string;
+    first_name: string;
+    last_name: string;
+    email:string;
+    pronouns:string;
+    permissions: [];
+  }
+  export interface Post {
     id: number;
     content: string;
-    user: Profile;
-    votes: [];
-    timestamp: Date;
+    user: User;
+    votes: User[];
+    timestamp: string;
 }
-//  these attributes will most likely change
-
 @Injectable ({
     providedIn: 'root'
 })
@@ -41,12 +51,18 @@ export class PostService {
         //                     })
         //                 )
         // return new_table
-        return this.http.get<Post[]>("/api/posts"); 
+        return this.http.get<Post[]>("/api/post"); 
     }
 
-    makePost(id: number, content: string, user: Profile, votes: [], timestamp: Date): Observable<Post> {
-        let post: Post = {id, content, user, votes, timestamp};
-        return this.http.post<Post>("/api/posts/", post);
+    makePost(id: number, content: string, user: Profile, votes: [], timestamp: string): Observable<Post> {
+        let u: User = {id:2, pid:100000000, onyen:'sol', first_name:"Sol", last_name:"Student", email:"sol@unc.edu", pronouns:"they / them",permissions:[]};
+        
+        let post: Post = {id:id, content: content, user: u, votes: votes, timestamp:timestamp};
+        console.log("Made it to api call")
+        console.log(JSON.stringify(post))
+        return this.http.post<Post>("/api/post", post);
+        
+      
     }
 
     // deletePost(id: number) {

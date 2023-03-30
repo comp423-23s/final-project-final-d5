@@ -1,4 +1,4 @@
-<p>getforum works!</p>
+<h1>Forum</h1>
 
 <table>
   <thead>
@@ -12,7 +12,8 @@
           <td>{{ post.content }}</td>
           <td>{{ post.user.first_name}}</td>
           <td>{{ post.user.last_name}}</td>
-          <td>{{ post.timestamp | date:'YYYY/MM/dd @ hh:MMaa' }}</td>
+          <td>{{ post.timestamp }}</td>
       </tr>
   </tbody>
+  <a mat-list-item routerLink="/forum">Make a Post</a>
 </table>
