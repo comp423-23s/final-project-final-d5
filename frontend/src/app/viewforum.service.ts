@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http'; //just added this
 @Injectable({
   providedIn: 'root'
 })
-export class GetforumService {
+export class viewforumService {
 
   constructor() { }
 }

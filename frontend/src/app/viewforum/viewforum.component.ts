@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { Post, PostService } from '../post.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-getforum',
-  templateUrl: './getforum.component.html',
-  styleUrls: ['./getforum.component.css']
+  templateUrl: './viewforum.component.html',
+  styleUrls: ['./viewforum.component.css']
 })
-export class GetforumComponent {
+export class viewforumComponent {
+  // public post$: Observable<Post[]>;
+
+  // constructor(private postService: PostService) {
+  //   this.post$ = postService.getPosts()
+  // }
 
 }

@@ -21,10 +21,13 @@ export class PostService {
 
     
     constructor(private http: HttpClient) {}
+    
     posts: Post[] = [];
+
     getPost() {
         return this.posts;
     }
+
     getPosts(): Observable<Post[]> {
         return this.http.get<Post[]>("/api/post");
     }
@@ -34,8 +37,8 @@ export class PostService {
         return this.http.post<Post>("/api/post/", post);
     }
 
-    deletePost(id: number) {
-        return this.http.delete<Post>("/api/post/" + id)
-    }
+    // deletePost(id: number) {
+    //     return this.http.delete<Post>("/api/post/" + id)
+    // }
 
 }

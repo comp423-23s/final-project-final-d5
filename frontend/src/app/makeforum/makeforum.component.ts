@@ -4,6 +4,7 @@ import { PostService, Post } from '../post.service';
 import { Role } from "../role";
 import { HttpErrorResponse } from '@angular/common/http';
 import { Profile, ProfileService } from '../profile/profile.service';
+import { viewforumComponent } from '../viewforum/viewforum.component';
 
 // things we need to do - change the name of forum component and you have to call one: makeforum and one should be seeforum
 //also we need to figure out how to create an actual user and not just a dummy one
@@ -39,34 +40,36 @@ export class ForumComponent {
         error: (err) => this.onError(err)
       });
 
+
     if (this.form.value.content?.length == 0) {
       window.alert("Please check your input!")
 
     }
     // we need to define onerror
-  } 
+} 
 
-  private onSuccess(profile: Profile | undefined): void {
-    // this is where we have something in scope of type profile
-    
-    if (profile == undefined) {
-      // handle this case better?
-      return;
-    }
-
-    this.postService
-        .makePost(1, "blah", profile, [], new Date("2022-03-25"))
-        .subscribe({
-          next: (post) => this.onSuccess(profile), 
-          error: (err) => this.onError(err)
-        });
-
-    window.alert('Thank you for posting')
-
-    this.form.reset()
+private onSuccess(profile: Profile | undefined): void {
+  // this is where we have something in scope of type profile
+  
+  if (profile == undefined) {
+    // handle this case better?
+    return;
   }
 
-  private onError(error: Error): void {
+
+  this.postService
+      .makePost(1, "blah", profile, [], new Date("2022-03-25"))
+      .subscribe({
+        next: (post) => this.onSuccess(profile),
+        error: (err) => this.onError(err)
+      });
+
+  window.alert('Thank you for posting')
+
+  this.form.reset()
+}
+
+private onError(error: Error): void {
 
   }
 }
