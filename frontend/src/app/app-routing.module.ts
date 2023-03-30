@@ -4,6 +4,7 @@ import { AppTitleStrategy } from './app-title.strategy';
 import { GateComponent } from './gate/gate.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.component';
+import { viewforumComponent } from './viewforum/viewforum.component';
 import { ForumComponent } from './makeforum/makeforum.component';
 
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   HomeComponent.Route,
   ProfileEditorComponent.Route,
   GateComponent.Route,
+  viewforumComponent.Route,
   ForumComponent.Route,
   { path: 'admin', title: 'Admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 ];
