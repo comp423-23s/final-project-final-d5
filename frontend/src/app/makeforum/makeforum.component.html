@@ -1,0 +1,14 @@
+<h1>Forum</h1>
+
+<h3>Make a Forum Post With Resources</h3>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <input id="content" type="text" formControlName="content">
+    </div>
+    <button class="button" type="submit">Submit</button>
+</form>
+
+<a mat-list-item routerLink="/viewforum">Back</a>
+
+

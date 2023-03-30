@@ -12,7 +12,7 @@ class RoleEntity(EntityBase):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String, unique=True)
 
-    users: Mapped[list['UserEntity']] = relationship(secondary=user_role_table, back_populates='roles')
+    users: Mapped[list['UserEntity']] = relationship(secondary=user_role_table)
     permissions: Mapped[list['PermissionEntity']] = relationship(back_populates='role')
 
     @classmethod
