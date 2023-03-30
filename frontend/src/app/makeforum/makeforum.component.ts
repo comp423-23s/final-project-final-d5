@@ -52,8 +52,13 @@ export class ForumComponent {
 private onSuccess(profile: Profile | undefined, formContent: string): void {
   // this is where we have something in scope of type profile
   // let current: new Date
-  let unique = Math.floor(Number(Math.random()*1000)) // generates unique post id
-  let date: string = "test date" // generates date of successful form
+  let unique = Math.floor(Number(Math.random()*1000)) // generates date of successful form
+  
+  let new_Date: Date = new Date();
+  // Converting date to string
+  let result: string = new_Date.toLocaleString();
+  // Convert the date object to US specific date string
+  let date = new_Date.toLocaleString("en-US");
   
   if (profile == undefined) {
     // handle this case better?
@@ -65,15 +70,15 @@ private onSuccess(profile: Profile | undefined, formContent: string): void {
     next: (post) => this.onSuccessMP(),
     error: (err) => this.onError(err)
   });
-  console.log(profile.pid)
-  
-
-  
+  console.log(profile.pid) 
 }
-
 private onError(error: Error): void {
-
+  if (error.message) {
+    window.alert(error.message);
+  } else {
+    window.alert("Unknown error: " + JSON.stringify(error));
   }
+}
 
   private onSuccessMP(){
     

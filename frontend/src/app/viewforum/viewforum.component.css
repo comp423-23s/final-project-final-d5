@@ -7,3 +7,18 @@ tr:nth-child(even) {
   th:nth-child(even),td:nth-child(even) {
     background-color: rgba(150, 212, 212, 0.4);
   }
+
+  a {
+    transition-duration: 0.4s;
+    border: 2px solid #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  a:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }

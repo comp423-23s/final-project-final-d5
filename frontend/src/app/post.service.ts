@@ -60,9 +60,12 @@ export class PostService {
         let post: Post = {id:id, content: content, user: u, votes: votes, timestamp:timestamp};
         console.log("Made it to api call")
         console.log(JSON.stringify(post))
-        return this.http.post<Post>("/api/post", post);
-        
-      
+        try{
+            return this.http.post<Post>("/api/post", post);
+        }catch (err){
+            return throwError(() => new Error("Unable to Post from unregistered user"));
+        }
+            
     }
 
     // deletePost(id: number) {
