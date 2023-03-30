@@ -33,7 +33,8 @@ import { ErrorDialogComponent } from './navigation/error-dialog/error-dialog.com
 import { HomeComponent } from './home/home.component';
 import { GateComponent } from './gate/gate.component';
 import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.component';
-import { ForumComponent } from './forum/forum.component';
+import { ForumComponent } from './makeforum/makeforum.component';
+import { viewforumComponent } from './viewforum/viewforum.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ForumComponent } from './forum/forum.component';
     HomeComponent,
     GateComponent,
     ProfileEditorComponent,
-    ForumComponent
+    ForumComponent,
+    viewforumComponent
   ],
   imports: [
     BrowserModule,

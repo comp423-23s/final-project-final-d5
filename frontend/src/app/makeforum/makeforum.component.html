@@ -1,0 +1,29 @@
+<h1>Welcome to the Forum!</h1>
+
+<h1>Make a Forum Post With Resources!!</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="enter your text here">Enter Your Text Here!</label>
+        <input id="text" type="text" formControlName="text">
+    </div>
+</form>
+
+<!-- <table>
+  <thead>
+      <td>Response</td>
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Date</td>
+  </thead>
+  <tbody>
+      <tr *ngFor="let profile of | async">
+          <td>{{ user.pid }}</td>
+          <td>{{ user.first_name}}</td>
+          <td>{{ user.last_name }}</td>
+          <button class="button" (click)="deleteFunction(user.pid)">Delete</button>
+          <td>{{ check.created_at | date:'YYYY/MM/dd @ hh:MMaa' }}</td>
+      </tr>
+  </tbody>
+</table> -->
+
