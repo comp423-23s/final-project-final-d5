@@ -15,10 +15,10 @@ class PostService:
         self._permission = permission
 
     def create(self, post: Post, user: UserEntity) -> Post:
-        entity = PostEntity.from_model(post,user)
-        self._session.add(entity)
+        post_entity = PostEntity.from_model(post,user)
+        self._session.add(post_entity)
         self._session.commit()
-        return entity.to_model()
+        return post_entity.to_model()
     
     def getAll(self) -> list[Post]:
         query = select(PostEntity)
