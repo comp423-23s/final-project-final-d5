@@ -64,6 +64,14 @@ class UserService:
         statement = statement.where(criteria).limit(10)
         entities = self._session.execute(statement).scalars()
         return [entity.to_model() for entity in entities]
+    
+    def findUser(self, _subject: User) -> UserEntity:
+       # query = select(UserEntity).filter_by(id=_subject.id)
+        query = select(UserEntity).where(UserEntity.pid == _subject.pid)
+        user_entity: UserEntity = self._session.execute(query).scalar()
+        return user_entity
+
+
 
     def list(self, subject: User, pagination_params: PaginationParams) -> Paginated[User]:
         """List Users.
@@ -148,3 +156,4 @@ class UserService:
         entity.update(user)
         self._session.commit()
         return entity.to_model()
+    
