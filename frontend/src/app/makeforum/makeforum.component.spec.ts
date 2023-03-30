@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForumComponent } from './forum.component';
+import { ForumComponent } from './makeforum.component';
 
 describe('ForumComponent', () => {
   let component: ForumComponent;
