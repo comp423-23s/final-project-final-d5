@@ -3,8 +3,15 @@
 <h3>Make a Forum Post With Resources</h3>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="title">Title:</label><br>
     <div>
-        <input id="content" type="text" formControlName="content">
+        <input id="title" type="text" formControlName="title">
+    </div>
+    <label for="content">Content:</label><br>
+    <div>
+        <textarea rows="5" cols="60" name="text" placeholder="" formControlName="content"></textarea>
+      <br/>
+        <!-- <input id="content" type="text" formControlName="content"> -->
     </div>
     <button class="button" type="submit">Submit</button>
 </form>

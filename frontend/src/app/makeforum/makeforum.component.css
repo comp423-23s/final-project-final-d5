@@ -11,3 +11,12 @@
 a {
     text-decoration: underline;
   }
+
+#content
+{
+  /* font-size:14pt;
+  padding-top: 0;
+  padding-left: 0;
+  line-height: 1em; */
+  padding: 0 0 400px 0
+}
