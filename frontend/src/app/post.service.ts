@@ -14,8 +14,15 @@ export interface User{
     last_name: string;
     email:string;
     pronouns:string;
-    permissions: [];
+    permissions: Permission[];
   }
+
+  export interface Permission {
+    id?: number;
+    action: string;
+    resource: string;
+  }
+  
   export interface Post {
     id: number;
     content: string;
@@ -55,17 +62,18 @@ export class PostService {
     }
 
     makePost(id: number, content: string, user: Profile, votes: [], timestamp: string): Observable<Post> {
-        let u: User = {id:2, pid:100000000, onyen:'sol', first_name:"Sol", last_name:"Student", email:"sol@unc.edu", pronouns:"they / them",permissions:[]};
-        
-        let post: Post = {id:id, content: content, user: u, votes: votes, timestamp:timestamp};
-        console.log("Made it to api call")
-        console.log(JSON.stringify(post))
-        try{
-            return this.http.post<Post>("/api/post", post);
-        }catch (err){
-            return throwError(() => new Error("Unable to Post from unregistered user"));
+        if(user.id && user.first_name && user.last_name && user.email && user.pronouns){
+            let u: User = {id: user.id, pid:user.pid, onyen: user.onyen, first_name:user.first_name, last_name:user.last_name, email:user.email, pronouns:user.pronouns, permissions: user.permissions};
+            let post: Post = {id:id, content: content, user: u, votes: votes, timestamp:timestamp};
+            console.log("Made it to api call")
+            console.log(JSON.stringify(post))
+            try{
+                return this.http.post<Post>("/api/post", post);
+            }catch (err){
+                return throwError(() => new Error("Unable to Post from unregistered user"));
+            }
         }
-            
+        return throwError(() => new Error("Unable to Post from user"));      
     }
 
     // deletePost(id: number) {
