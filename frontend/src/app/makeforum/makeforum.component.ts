@@ -65,7 +65,7 @@ export class ForumComponent {
       return;
     }
 
-    this.postService.makePost(unique, formContent, profile, [], date)
+    this.postService.makePost(unique, formTitle, formContent, profile, [], date)
     .subscribe({
       next: (post) => this.onSuccessMP(),
       error: (err) => this.onError(err)
