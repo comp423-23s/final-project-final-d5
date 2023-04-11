@@ -77,8 +77,8 @@ export class PostService {
         return throwError(() => new Error("Unable to Post from user"));      
     }
 
-    // deletePost(id: number) {
-    //     return this.http.delete<Post>("/api/forum/" + id)
-    // }
+    deletePost(id: number) {
+        return this.http.delete<Post>("/api/forum/" + id)
+    }
 
 }

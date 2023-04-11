@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -19,7 +19,9 @@ export class NavigationService {
   private _error: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   public error$ = this._error.asObservable();
 
-  constructor() {}
+  constructor(
+    private http: HttpClient,
+  ) {}
 
   setTitle(title: string) {
     this.title.next(title);
@@ -35,6 +37,11 @@ export class NavigationService {
 
   error(e: HttpErrorResponse) {
     this._error.next(`Response: ${e.status} ${e.statusText}\nEndpoint: ${e.url}`);
+  }
+
+  deletePost(id: number) {
+    console.log(id) // test
+    return this.http.delete("" + id)
   }
 
 }
