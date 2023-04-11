@@ -5,6 +5,7 @@ from . import User
 
 class Post(BaseModel):
     id: int | None = None
+    title: str
     content: str
     user: User
     votes: list[User] = []

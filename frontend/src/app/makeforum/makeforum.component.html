@@ -10,9 +10,10 @@
 
   <mat-form-field class="full-width">
     <mat-label>Content</mat-label>
-    <textarea cdkTextareaAutosize id="content" type="text" formControlName="content" matInput rows="5" placeholder="Write content here..."></textarea>
+    <textarea id="content" type="text" formControlName="content" matInput placeholder="Write content here..."></textarea>
   </mat-form-field>
   <button mat-stroked-button class="button" type="submit">Submit</button>
 </form>
 
-<button mat-stroked-button class="button" id="back" routerLink="/viewforum">Back</button>
+
+<a mat-list-item routerLink="/viewforum">Back</a>
