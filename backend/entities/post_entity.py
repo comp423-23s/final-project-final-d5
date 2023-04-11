@@ -1,7 +1,7 @@
 '''User accounts for all registered users in the application.'''
 
 
-from sqlalchemy import Integer, String, ForeignKey
+from sqlalchemy import Integer, String, ForeignKey, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import Self
 from .entity_base import EntityBase
@@ -22,7 +22,7 @@ class PostEntity(EntityBase):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     title: Mapped[str] = mapped_column(String(64), nullable = False, default = '')
-    content: Mapped[str] = mapped_column(String(64), nullable=False, default='')
+    content: Mapped[str] = mapped_column(Text, nullable=False, default='')
     
     user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
     user: Mapped[UserEntity] = relationship("UserEntity",back_populates='posts')
