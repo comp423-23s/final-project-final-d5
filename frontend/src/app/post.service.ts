@@ -25,6 +25,7 @@ export interface User{
   
   export interface Post {
     id: number;
+    title: string;
     content: string;
     user: User;
     votes: User[];
@@ -61,10 +62,10 @@ export class PostService {
         return this.http.get<Post[]>("/api/post"); 
     }
 
-    makePost(id: number, content: string, user: Profile, votes: [], timestamp: string): Observable<Post> {
+    makePost(id: number, title: string, content: string, user: Profile, votes: [], timestamp: string): Observable<Post> {
         if(user.id && user.first_name && user.last_name && user.email && user.pronouns){
             let u: User = {id: user.id, pid:user.pid, onyen: user.onyen, first_name:user.first_name, last_name:user.last_name, email:user.email, pronouns:user.pronouns, permissions: user.permissions};
-            let post: Post = {id:id, content: content, user: u, votes: votes, timestamp:timestamp};
+            let post: Post = {id: id, title: title, content: content, user: u, votes: votes, timestamp:timestamp};
             console.log("Made it to api call")
             console.log(JSON.stringify(post))
             try{

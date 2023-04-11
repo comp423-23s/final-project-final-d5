@@ -1,7 +1,7 @@
 '''User accounts for all registered users in the application.'''
 
 
-from sqlalchemy import Integer, String, ForeignKey
+from sqlalchemy import Integer, String, ForeignKey, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import Self
 from .entity_base import EntityBase
@@ -21,7 +21,8 @@ class PostEntity(EntityBase):
     __tablename__ = 'posts'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    content: Mapped[str] = mapped_column(String(64), nullable=False, default='')
+    title: Mapped[str] = mapped_column(String(64), nullable = False, default = '')
+    content: Mapped[str] = mapped_column(Text, nullable=False, default='')
     
     user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
     user: Mapped[UserEntity] = relationship("UserEntity",back_populates='posts')
@@ -35,6 +36,7 @@ class PostEntity(EntityBase):
         #user_svc: UserPostService = Depends()
         return cls(
             id=model.id,
+            title = model.title,
             content=model.content,
             user = user,
             votes= [],
@@ -48,6 +50,7 @@ class PostEntity(EntityBase):
         vote_num = [vote.to_model() for vote in self.votes]
         return Post(
             id=self.id,
+            title = self.title,
             content=self.content,
             user=self.user.to_model(),
             votes=vote_num,
