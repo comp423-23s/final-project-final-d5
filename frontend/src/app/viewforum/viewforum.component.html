@@ -2,6 +2,7 @@
 
 <table>
   <thead>
+      <td>Title</td>
       <td>Response</td>
       <td>First Name</td> 
       <td>Last Name</td>
@@ -9,6 +10,7 @@
   </thead>
   <tbody>
       <tr *ngFor="let post of post$| async">
+          <td>{{ post.title }}</td>
           <td>{{ post.content }}</td>
           <td>{{ post.user.first_name}}</td>
           <td>{{ post.user.last_name}}</td>
