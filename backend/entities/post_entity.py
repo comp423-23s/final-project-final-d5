@@ -20,7 +20,7 @@ __license__ = 'MIT'
 class PostEntity(EntityBase):
     __tablename__ = 'posts'
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    post_id: Mapped[int] = mapped_column(Integer, primary_key=True)
     title: Mapped[str] = mapped_column(String(64), nullable = False, default = '')
     content: Mapped[str] = mapped_column(Text, nullable=False, default='')
     
@@ -35,7 +35,7 @@ class PostEntity(EntityBase):
     def from_model(cls, model: Post, user: UserEntity ) -> Self:
         #user_svc: UserPostService = Depends()
         return cls(
-            id=model.id,
+            post_id=model.id,
             title = model.title,
             content=model.content,
             user = user,
@@ -49,7 +49,7 @@ class PostEntity(EntityBase):
     def to_model(self) -> Post:
         vote_num = [vote.to_model() for vote in self.votes]
         return Post(
-            id=self.id,
+            id=self.post_id,
             title = self.title,
             content=self.content,
             user=self.user.to_model(),
