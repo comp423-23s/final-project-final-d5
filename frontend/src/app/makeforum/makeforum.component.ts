@@ -22,6 +22,7 @@ export class ForumComponent {
   };
 
   form = this.formBuilder.group({
+    title: '',
     content: ''
   });
 
@@ -33,52 +34,52 @@ export class ForumComponent {
 
   onSubmit(): void {
     let form = this.form.value;
+    let formTitle = this.form.value.title ?? "";
     let formContent = this.form.value.content ?? "";
     console.log(form)
     this.profileService.profile$
       .subscribe({
-        next: (profile) => this.onSuccess(profile, formContent), 
+        next: (profile) => this.onSuccess(profile, formContent, formTitle), 
         error: (err) => this.onError(err)
       });
 
 
     if (this.form.value.content?.length == 0) {
       window.alert("Please check your input!")
-
     }
-    // we need to define onerror
-} 
+  } 
 
-private onSuccess(profile: Profile | undefined, formContent: string): void {
-  // this is where we have something in scope of type profile
-  // let current: new Date
-  let unique = Math.floor(Number(Math.random()*1000)) // generates date of successful form
-  
-  let new_Date: Date = new Date();
-  // Converting date to string
-  let result: string = new_Date.toLocaleString();
-  // Convert the date object to US specific date string
-  let date = new_Date.toLocaleString("en-US");
-  
-  if (profile == undefined) {
-    // handle this case better?
-    return;
+  private onSuccess(profile: Profile | undefined, formContent: string, formTitle: string): void {
+    // this is where we have something in scope of type profile
+    // let current: new Date
+    let unique = Math.floor(Number(Math.random()*1000)) // generates date of successful form
+    
+    let new_Date: Date = new Date();
+    // Converting date to string
+    let result: string = new_Date.toLocaleString();
+    // Convert the date object to US specific date string
+    let date = new_Date.toLocaleString("en-US");
+    
+    if (profile == undefined) {
+      // handle this case better?
+      return;
+    }
+
+    this.postService.makePost(unique, formTitle, formContent, profile, [], date)
+    .subscribe({
+      next: (post) => this.onSuccessMP(),
+      error: (err) => this.onError(err)
+    });
+    console.log(profile.pid) 
   }
 
-  this.postService.makePost(unique, formContent, profile, [], date)
-  .subscribe({
-    next: (post) => this.onSuccessMP(),
-    error: (err) => this.onError(err)
-  });
-  console.log(profile.pid) 
-}
-private onError(error: Error): void {
-  if (error.message) {
-    window.alert(error.message);
-  } else {
-    window.alert("Unknown error: " + JSON.stringify(error));
+  private onError(error: Error): void {
+    if (error.message) {
+      window.alert(error.message);
+    } else {
+      window.alert("Unknown error: " + JSON.stringify(error));
+    }
   }
-}
 
   private onSuccessMP(){
     

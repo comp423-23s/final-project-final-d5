@@ -2,13 +2,17 @@
 
 <h3>Make a Forum Post With Resources</h3>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
-        <input id="content" type="text" formControlName="content">
-    </div>
-    <button class="button" type="submit">Submit</button>
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Content</mat-label>
+    <textarea cdkTextareaAutosize id="content" type="text" formControlName="content" matInput rows="5" placeholder="Write content here..."></textarea>
+  </mat-form-field>
+  <button mat-stroked-button class="button" type="submit">Submit</button>
 </form>
 
-<a mat-list-item routerLink="/viewforum">Back</a>
-
-
+<button mat-stroked-button class="button" id="back" routerLink="/viewforum">Back</button>
