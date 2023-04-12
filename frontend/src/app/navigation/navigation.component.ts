@@ -10,6 +10,7 @@ import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { Profile, ProfileService } from '../profile/profile.service';
 import { PermissionService } from '../permission.service';
+import { Post, PostService } from '../post.service';
 
 @Component({
   selector: 'app-navigation',
@@ -34,7 +35,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
     private profileService: ProfileService,
     private breakpointObserver: BreakpointObserver,
     protected navigationService: NavigationTitleService,
-    protected errorDialog: MatDialog
+    protected errorDialog: MatDialog,
+    private postService: PostService
   ) {
     this.profile$ = profileService.profile$;
     this.checkinPermission$ = this.permission.check('checkin.create', 'checkin/');
@@ -73,5 +75,4 @@ export class NavigationComponent implements OnInit, OnDestroy {
         .pipe(map(result => result.matches))
         .subscribe(isHandset => this.isHandset = isHandset);
   }
-
 }

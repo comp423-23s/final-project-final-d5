@@ -17,3 +17,10 @@ def create(post: Post, post_svc: PostService = Depends(), usr_svc: UserService =
 @api.get("", response_model=list[Post], tags=['Post'])
 def getAll(post_svc: PostService = Depends()):
     return post_svc.getAll()
+
+@api.delete("/{id}", tags=['Post'])
+def delete(id: int, post_svc: PostService = Depends()) -> bool:
+    try:
+        return post_svc.delete(id=id)
+    except:
+        raise HTTPException(status_code=422, detail=str("Post not found"))
