@@ -11,8 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class viewforumComponent {
   public adminPermission$: Observable<boolean>;
-
   public post$: Observable<Post[]>;
+  
   public static Route = {
     path: 'viewforum',
     component: viewforumComponent
@@ -35,7 +35,7 @@ export class viewforumComponent {
     })
   }
 
-  private onSuccess(): void {
+  private onSuccess(): void { // get new posts after deletion
     this.post$ = this.postService.getPosts()
   }
 

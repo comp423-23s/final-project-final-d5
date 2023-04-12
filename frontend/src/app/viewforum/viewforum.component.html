@@ -15,7 +15,7 @@
           <td>{{ post.user.first_name}}</td>
           <td>{{ post.user.last_name}}</td>
           <td>{{ post.timestamp }}</td>
-          <td *ngIf="adminPermission$ | async" ><button (click)="onDelete(post.id)">Delete</button> </td>
+          <td *ngIf="adminPermission$ | async" > <button (click)="onDelete(post.id)">Delete</button> </td>
       </tr>
   </tbody>
   <a mat-list-item routerLink="/forum">Make a Post</a>
