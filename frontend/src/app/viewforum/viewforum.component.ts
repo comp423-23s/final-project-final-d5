@@ -29,7 +29,7 @@ export class viewforumComponent {
   onDelete(id: number): void {
     this.postService
     .deletePost(id)
-    .subscribe({
+    .subscribe({ // stopping here when we use the /api/posts + id route)
       next: () => this.onSuccess(),
       error: (err) => this.onError(err)
     })
@@ -37,14 +37,15 @@ export class viewforumComponent {
 
   private onSuccess(): void { // get new posts after deletion
     this.post$ = this.postService.getPosts()
+    console.log("going to onSuccess") // test
   }
 
   private onError(err: HttpErrorResponse) {
-    console.log(err)
     if (err.error.detail) { 
       window.alert(err.error.detail);
     } else {
-      window.alert("random error: " + JSON.stringify(err));
+      console.log("onDelete going to error"); // test (going here when we use the /viewforum/post + id route)
+      console.log("random error: " + JSON.stringify(err)); // see what error is
     }
   }
 
