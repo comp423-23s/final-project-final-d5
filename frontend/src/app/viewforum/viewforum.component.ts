@@ -37,15 +37,13 @@ export class viewforumComponent {
 
   private onSuccess(): void { // get new posts after deletion
     this.post$ = this.postService.getPosts()
-    console.log("going to onSuccess") // test
   }
 
   private onError(err: HttpErrorResponse) {
     if (err.error.detail) { 
       window.alert(err.error.detail);
     } else {
-      console.log("onDelete going to error"); // test (going here when we use the /viewforum/post + id route)
-      console.log("random error: " + JSON.stringify(err)); // see what error is
+      console.log(JSON.stringify(err)); // see what error is
     }
   }
 

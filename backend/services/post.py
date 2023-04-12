@@ -28,7 +28,6 @@ class PostService:
     def delete(self, id: int) -> bool:
         query = select(PostEntity).filter_by(post_id=id)
         post = self._session.execute(query).scalar_one()
-        print(post)
         if (post == None): 
             raise Exception("Post not found")
         self._session.delete(post)
