@@ -78,7 +78,7 @@ export class PostService {
     }
 
     deletePost(id: number) {
-        return this.http.delete<Post>("/viewforum/post/" + id)
+        return this.http.delete<Post>("/api/post/" + id)
         // return this.http.delete<Post>("/api/post/" + id) // what we had before (from the backend routes)
     }
 

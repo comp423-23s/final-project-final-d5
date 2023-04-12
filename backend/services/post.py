@@ -25,7 +25,7 @@ class PostService:
         entities = self._session.scalars(query).all()
         return [entity.to_model() for entity in entities]
     
-    def delete(self, id: int) -> None:
+    def delete(self, id: int) -> bool:
         query = select(PostEntity).filter_by(post_id=id)
         post = self._session.execute(query).scalar_one()
         print(post)
@@ -33,3 +33,4 @@ class PostService:
             raise Exception("Post not found")
         self._session.delete(post)
         self._session.commit()
+        return True
