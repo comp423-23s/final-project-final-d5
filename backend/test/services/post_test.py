@@ -9,8 +9,8 @@ from sqlalchemy.exc import IntegrityError
 # Mock Models
 user = User(id=1, pid=111111111, onyen='onyen',first_name="first", last_name = "last",  email='user@unc.edu', pronouns="He/Him/His", permissions = [])
 
-post_0 = Post(id = 1, content = "post", user = user, votes = [], timestamp = "date0")
-post_1 = Post(id = 2, content = "content", user = user, votes = [], timestamp = "date1")
+post_0 = Post(id = 1, title = "title", content = "post", user = user, votes = [], timestamp = "date0")
+post_1 = Post(id = 2, title = "title", content = "content", user = user, votes = [], timestamp = "date1")
 
 @pytest.fixture(autouse=True)
 def setup_teardown(test_session: Session):
@@ -46,5 +46,13 @@ def test_getall_posts_pass(postservice: PostService, userservice: UserService):
     post_entity_0: Post = postservice.create(post_0, user_entity)
     post_entity_1: Post = postservice.create(post_1, user_entity)
     posts = postservice.getAll()
-    assert posts[0] == post_0
-    assert posts[1] == post_1
+    assert posts[0] == post_entity_0
+    assert posts[1] == post_entity_1
+
+def test_delete_post_pass(postservice: PostService, userservice: UserService):
+    user_entity: UserEntity = userservice.findUser(user)
+    post_entity_0: Post = postservice.create(post_0, user_entity)
+    post_entity_1: Post = postservice.create(post_1, user_entity)
+    postservice.delete(post_entity_0.id)
+    posts = postservice.getAll()
+    assert posts[0] == post_entity_1
