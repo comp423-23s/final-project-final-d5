@@ -1,22 +1,21 @@
-<h1>Forum</h1>
+<body>
+  <div class="forum-header">
+    <h1 class ="title">Forum</h1>
+    <a mat-list-item routerLink="/forum">New Post</a>
+  </div>
 
-<table>
-  <thead>
-      <td>Title</td>
-      <td>Response</td>
-      <td>First Name</td> 
-      <td>Last Name</td>
-      <td>Date</td>
-  </thead>
-  <tbody>
-      <tr *ngFor="let post of post$| async">
-          <td>{{ post.title }}</td>
-          <td>{{ post.content }}</td>
-          <td>{{ post.user.first_name}}</td>
-          <td>{{ post.user.last_name}}</td>
-          <td>{{ post.timestamp }}</td>
-          <td *ngIf="adminPermission$ | async" > <button (click)="onDelete(post.id)">Delete</button> </td>
-      </tr>
-  </tbody>
-  <a mat-list-item routerLink="/forum">Make a Post</a>
-</table>
+  <div class="forum-posts">
+      <div class="post-outline" *ngFor="let post of post$| async">
+   
+        <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
+          <h1 class="post-body">{{ post.title }}</h1>
+          <h2 class="post-body">{{ post.content }}</h2>
+          
+          <div></div>
+          <div></div>
+          <td *ngIf="adminPermission$ | async"> <button (click)="onDelete(post.id)">Delete</button> </td>
+ 
+      </div>
+  </div>
+</body>
+  
