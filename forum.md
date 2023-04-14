@@ -8,7 +8,14 @@ As of now, Registered CSXL users are able to:
 
 ## Implementation notes
 
+
+
 ## Development Concerns
+
+### Getting Started
+
+### File Breakdown
+* ***backend/api/post.py*** - 
 
 ## Future Work
 
