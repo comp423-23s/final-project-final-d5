@@ -1,4 +1,10 @@
 ## Overview
+The CSXL forum is a tool for students and faculty to share helpful information and resources.
+
+As of now, Registered CSXL users are able to:
+* Post resources and information to the forum
+* View posts from other users
+* Delete posts from forum (***Admin Users Only***)
 
 ## Implementation notes
 
