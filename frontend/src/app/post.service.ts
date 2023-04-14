@@ -47,18 +47,6 @@ export class PostService {
     }
 
     getPosts(): Observable<Post[]> {
-        // let table: Observable<Post[]> = this.http.get<Post[]>("/api/forum"); // copied from the getCheckIns
-    
-        // let new_table = table
-        //                     .pipe(
-        //                     map((x: Post[])=> {
-        //                     x.forEach(new_post => {
-        //                         new_post.timestamp = new Date(new_post.timestamp)
-        //                     });
-        //                     return x;
-        //                     })
-        //                 )
-        // return new_table
         return this.http.get<Post[]>("/api/post"); 
     }
 
@@ -79,7 +67,6 @@ export class PostService {
 
     deletePost(id: number) {
         return this.http.delete<Post>("/api/post/" + id)
-        // return this.http.delete<Post>("/api/post/" + id) // what we had before (from the backend routes)
     }
 
 }

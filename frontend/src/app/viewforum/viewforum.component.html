@@ -5,7 +5,7 @@
   </div>
 
   <div class="forum-posts">
-      <div class="post-outline" *ngFor="let post of post$| async">
+      <div class="post-outline" *ngFor="let post of post$| async"> 
    
         <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
           <h1 class="post-body">{{ post.title }}</h1>
@@ -17,5 +17,14 @@
  
       </div>
   </div>
+
+  <app-pagination
+  [current]="current"
+  [total]="total"
+  (goTo)="onGoTo($event)"
+  (next)="onNext($event)"
+  (previous)="onPrevious($event)"
+></app-pagination>
+
 </body>
   

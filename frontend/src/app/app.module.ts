@@ -35,6 +35,7 @@ import { GateComponent } from './gate/gate.component';
 import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.component';
 import { ForumComponent } from './makeforum/makeforum.component';
 import { viewforumComponent } from './viewforum/viewforum.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { viewforumComponent } from './viewforum/viewforum.component';
     GateComponent,
     ProfileEditorComponent,
     ForumComponent,
-    viewforumComponent
+    viewforumComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
