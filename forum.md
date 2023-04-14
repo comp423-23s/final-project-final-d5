@@ -5,8 +5,13 @@ As of now, Registered CSXL users are able to:
 * Post resources and information to the forum
 * View posts from other users
 * Delete posts from forum (***Admin Users Only***)
+* View only a given number of forums on a single page (through in-built pagination)
 
 ## Implementation notes
+Description of database/entity-level representation of your feature
+
+One design choice that we thought of was to allow only admin users to find a delete button on the page where
+they can view every users' posts. The delete button allows admin users to remove posts that may be in
 
 
 
