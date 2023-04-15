@@ -8,7 +8,7 @@ As of now, Registered CSXL users are able to:
 * View only a given number of forums on a single page (through in-built pagination)
 
 ## Implementation notes
-Description of database/entity-level representation of your feature
+Description of database/entity-level representation of your feature (warren/angelina can you do this)
 
 One design choice that we thought of was to allow only admin users to find a delete button on the page where
 they can view every users' posts. Even though we could have given the admin users any other admin-only feature, we thought 
@@ -19,13 +19,9 @@ only allowing five posts on a page at a time (with each page having a next and p
 substantial amount of information without feeling overwhelmed
 
 
-## Development Concerns
+## Development Concerns 
+(warren/angelina can you do this)
 
-
-### Getting Started
-
-### File Breakdown
-* ***backend/api/post.py*** - 
 
 ## Future Work
 
