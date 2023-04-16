@@ -23,7 +23,9 @@ substantial amount of information without feeling overwhelmed
 (warren/angelina can you do this)
 
 ### Important Backend Files:
-* ***backend/api/post*** - contains all api routes for retrieving, deleting, and creating posts
+* ***backend/api/post.py*** - contains all api routes for retrieving, deleting, and creating posts (documentation for each found in file)
+* ***backend/services/post.py*** - contains all services called by api to mutate post database (creating post, deleting post, retrieving all posts)
+* ***backend/entities/post_entity.py*** -
 
 
 
