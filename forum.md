@@ -35,7 +35,7 @@ git clone https://github.com/comp423-23s/final-project-final-d5.git
 * ***backend/entities/post_entity.py*** - entity representation of Post in database
 
 ### Important Frontend Files:
-* ***fontend/src/app/post.service.ts***
+* ***fontend/src/app/post.service.ts*** - contains functions that make api calls, allowing frontend to access and mutate database
 
 
 
