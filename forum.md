@@ -22,7 +22,9 @@ substantial amount of information without feeling overwhelmed
 ## Development Concerns 
 (warren/angelina can you do this)
 
-### Important Files:
+### Important Backend Files:
+* ***backend/api/post*** - contains all api routes for retrieving, deleting, and creating posts
+
 
 
 
