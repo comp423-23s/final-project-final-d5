@@ -18,10 +18,10 @@ Post objects in our database contain the following fields:
 * votes - array of user objects
 * timestamp - string
 
-We represent all of these fields as mapped columns within the PostEntity with two special implementations
-* The user field of a post back populates the user field of the UserEntity table, allowing for users to access all of the posts that they have created
+We represent all of these fields as mapped columns within the PostEntity. However, two columns represent special cases:
+* The user column of PostEntity back populates the user field of the UserEntity table, allowing for users to access all of the posts that they have created
   * The goal of this implementation is to establish a one-to-many relationship between a post and a user
-* The votes field of a post is connected to a secondary table to establish a bi-directional relationship between users and posts
+* The votes column of PostEntity populates a secondary table to establish a bi-directional relationship between users and posts
 
 
 
