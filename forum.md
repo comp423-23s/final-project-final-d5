@@ -8,7 +8,19 @@ As of now, registered CSXL users are able to:
 * View only a given number of forums on a single page (through in-built pagination)
 
 ## Implementation notes
-Description of database/entity-level representation of your feature.
+
+### Database Representation:
+Post objects in our database contain the following fields:
+* id - integer
+* title - string
+* content - string
+* user - User Object
+* votes - array of user objects
+* timestamp - string
+
+
+
+### Design Choices: 
 
 One design choice that we thought of was to allow only admin users (Merritt Manager and Super User) to access a delete button  on the page where they can view every users' posts. We deliberately chose the delete button, because it allows admin users to remove posts that may be insensitive, inappropriate, or against XL community guidelines. 
 
