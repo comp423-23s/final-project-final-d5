@@ -1,5 +1,5 @@
 ## Overview
-The CSXL forum is a tool for students and faculty to share and promote resources about technology and computer science. Having this forum would faciliate increased communicatiion in what resources were helpful for a certain class, how a student could prepare for a class they are planning to take next semester, or just fuel general curiousity about topics in computer science and technology.
+The CSXL forum is a tool for students and faculty to share and promote resources about technology and computer science. Having this forum would faciliate increased communication in what resources were helpful for a certain class, how a student could prepare for a class they are planning to take next semester, or just in general curiousity about topics in computer science and technology.
 
 As of now, registered CSXL users are able to:
 * Post resources and information to the forum
