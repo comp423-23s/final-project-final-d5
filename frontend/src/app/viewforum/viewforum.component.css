@@ -79,3 +79,19 @@ tr:nth-child(even) {
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size:xx-large;
   }
+
+  .pagination{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
+
+  .pagination-button{
+    flex: 2;
+  }
+
+  .pagination-text{
+    flex: 6;
+    align-self: center;
+    text-align: center;
+  }

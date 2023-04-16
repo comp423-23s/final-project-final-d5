@@ -16,25 +16,11 @@
           <td *ngIf="adminPermission$ | async"> <button (click)="onDelete(post.id)">Delete</button> </td>
     </div>
   </div>
-<div>Page {{currentPage}} of {{numPosts}}</div>
-<button *ngIf = "currentPage != 1"(click)="currentPage = currentPage - 1; updateItems()">Previous</button>
-<button (click)="currentPage = currentPage + 1; updateItems()">Next</button>
+  <div class="pagination">
+    <button class="pagination-button" *ngIf = "currentPage != 1"(click)="currentPage = currentPage - 1; updateItems()">Previous</button>
+    <h2 class="pagination-text">Page {{currentPage}} of {{numPages}}</h2>
+    <button class="pagination-button" *ngIf = "currentPage < numPages"(click)="currentPage = currentPage + 1; updateItems()">Next</button>
+  </div>
 
-  
-  
-
-  <!-- <div class="forum-posts">
-      <div class="post-outline" *ngFor="let post of post$| async">
-   
-        <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
-          <h1 class="post-body">{{ post.title }}</h1>
-          <h2 class="post-body">{{ post.content }}</h2>
-          
-          <div></div>
-          <div></div>
-          <td *ngIf="adminPermission$ | async"> <button (click)="onDelete(post.id)">Delete</button> </td>
- 
-      </div>
-  </div> -->
 </body>
   
