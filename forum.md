@@ -36,7 +36,7 @@ git clone https://github.com/comp423-23s/final-project-final-d5.git
 
 ### Important Frontend Files:
 * ***fontend/src/app/post.service.ts*** - contains functions that make api calls, allowing frontend to access and mutate database
-* * ***fontend/src/app/viewforum*** - component for viewing posts 
+* ***fontend/src/app/viewforum*** - component for viewing posts 
 * ***fontend/src/app/makeforum*** - component for creating a new forum post
 
 
