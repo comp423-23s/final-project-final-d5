@@ -1,4 +1,4 @@
-'''User accounts for all registered users in the application.'''
+'''Entity for all Posts in application'''
 
 
 from sqlalchemy import Integer, String, ForeignKey, Text

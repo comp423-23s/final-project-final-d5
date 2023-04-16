@@ -1,3 +1,7 @@
+"""User API
+
+This API is used to create, retrieve, and delete posts for CSXL forum page"""
+
 from fastapi import APIRouter, Depends
 from ..services import UserService
 from ..models import User
