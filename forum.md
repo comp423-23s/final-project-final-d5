@@ -23,7 +23,7 @@ substantial amount of information without feeling overwhelmed
 
 ### Getting Started
 
-Clone the Repository
+#### Clone the Repository
 ```
 git clone https://github.com/comp423-23s/final-project-final-d5.git
 ```
@@ -33,6 +33,8 @@ git clone https://github.com/comp423-23s/final-project-final-d5.git
 * ***backend/services/post.py*** - contains all services called by api to mutate post database (creating post, deleting post, retrieving all posts)
 *  ***backend/models/post.py*** - Data model for posts
 * ***backend/entities/post_entity.py*** - entity representation of Post in database
+
+### Important Backend Files:
 
 
 
