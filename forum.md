@@ -19,10 +19,13 @@ only allowing five posts on a page at a time (with each page having a next and p
 substantial amount of information without feeling overwhelmed
 
 
-## Development Concerns 
-(warren/angelina can you do this)
+## Development Concerns
+
+###Getting Started
+
+Clone the Repository
 ```
->   laskfjlkfsj
+>   git clone https://github.com/comp423-23s/final-project-final-d5.git
 ```
 
 ### Important Backend Files:
