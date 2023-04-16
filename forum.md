@@ -34,7 +34,8 @@ git clone https://github.com/comp423-23s/final-project-final-d5.git
 *  ***backend/models/post.py*** - Data model for posts
 * ***backend/entities/post_entity.py*** - entity representation of Post in database
 
-### Important Backend Files:
+### Important Frontend Files:
+* ***fontend/src/app/post.service.ts***
 
 
 
