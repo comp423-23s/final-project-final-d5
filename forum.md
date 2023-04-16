@@ -21,11 +21,11 @@ substantial amount of information without feeling overwhelmed
 
 ## Development Concerns
 
-###Getting Started
+### Getting Started
 
 Clone the Repository
 ```
->   git clone https://github.com/comp423-23s/final-project-final-d5.git
+git clone https://github.com/comp423-23s/final-project-final-d5.git
 ```
 
 ### Important Backend Files:
