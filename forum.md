@@ -52,7 +52,7 @@ git clone https://github.com/comp423-23s/final-project-final-d5.git
 * ***frontend/src/app/post.service.ts*** - contains functions that make API calls, allowing the frontend to access and mutate database
 * ***frontend/src/app/viewforum*** - component for viewing posts 
 * ***frontend/src/app/makeforum*** - component for creating a new forum post
-* ***frontend/src/app/pagination*** - component for pagination
+* ***frontend/src/pagination*** - service file for pagination
 
 For starters, look through the files and trace through how a post is created and posted on the forum on both the frontend and backend. Most of the features implemented right now contain both parts. Understanding this process on both ends will give more clarity in how to implement improvements on the features, regardless of what side the changes end up.
 
