@@ -12,10 +12,19 @@ api = APIRouter(prefix="/api/post")
 
 @api.post("", response_model=Post, tags=['Post'])
 def create(post: Post, post_svc: PostService = Depends(), usr_svc: UserService = Depends()):
-    """Create a new post     
-    If post author is not registered in CSXL User database, throw 422 Error
-    Verify author is registered by calling findUser method form UserService"""
+    """Create a new post in the database
 
+        Args:
+            post: The post to create.
+            post_svc: The PostService object.
+            usr_svc: The UserService object.
+
+        Returns:
+            Post: The newly created post.
+
+        Raises:
+            HTTPException: 422, If the user is not registered.
+    """
     try:
         user_entity = usr_svc.findUser(post.user)
     except:
@@ -24,13 +33,30 @@ def create(post: Post, post_svc: PostService = Depends(), usr_svc: UserService =
 
 @api.get("", response_model=list[Post], tags=['Post'])
 def getAll(post_svc: PostService = Depends()):
-    """Retrieve all forum posts to be displayed in viewForum""" 
+    """Retrieve all forum posts to be displayed in viewForum
+
+        Args:
+            post_svc: The PostService object.
+
+        Returns:
+            list[Post]: The created posts.
+    """
     return post_svc.getAll()
 
 @api.delete("/{id}", tags=['Post'])
 def delete(id: int, post_svc: PostService = Depends()) -> bool:
     """Delete a specific forum post from database by id
-    If post with associated id does not exist, throw 422 error""" 
+
+        Args:
+            id: The id of the post to delete.
+            post_svc: The PostService object.
+
+        Returns:
+            bool: If the post has been deleted.
+
+        Raises:
+            HTTPException: 422, If the post is not found.
+    """
     try:
         return post_svc.delete(id=id)
     except:

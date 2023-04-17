@@ -42,6 +42,14 @@ class UserEntity(EntityBase):
 
     @classmethod
     def from_model(cls, model: User) -> Self:
+        """Create a UserEntity from a User model.
+
+        Args:
+            model: The User model.
+
+        Returns:
+            UserEntity (Self): The UserEntity object.
+        """
         return cls(
             id=model.id,
             pid=model.pid,
@@ -53,6 +61,14 @@ class UserEntity(EntityBase):
         )
 
     def to_model(self) -> User:
+        """Create a User from a UserEntity.
+
+        Args:
+            None
+
+        Returns:
+            UserEntity (Self): The UserEntity object.
+        """
         return User(
             id=self.id,
             pid=self.pid,

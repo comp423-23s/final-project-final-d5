@@ -34,6 +34,15 @@ class PostEntity(EntityBase):
     @classmethod
     def from_model(cls, model: Post, user: UserEntity ) -> Self:
         #user_svc: UserPostService = Depends()
+        """Create a PostEntity from a Post model.
+
+        Args:
+            model: The Post model.
+            user: The UserEntity making the post.
+
+        Returns:
+            PostEntity (Self): The PostEntity object.
+        """
         return cls(
             post_id=model.id,
             title = model.title,
@@ -47,6 +56,14 @@ class PostEntity(EntityBase):
         )
 
     def to_model(self) -> Post:
+        """Create a Post from a PostEntity model.
+
+        Args:
+            None
+
+        Returns:
+            Post (Self): The Post object.
+        """
         vote_num = [vote.to_model() for vote in self.votes]
         return Post(
             id=self.post_id,
@@ -58,6 +75,14 @@ class PostEntity(EntityBase):
         )
 
     def update(self, model: Post) -> None:
+        """Updates a PostEntity's content from a Post model's content.
+
+        Args:
+            model: The Post model.
+
+        Returns:
+            None
+        """
         self.content = model.content
 
 
