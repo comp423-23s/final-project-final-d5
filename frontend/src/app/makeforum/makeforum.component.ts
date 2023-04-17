@@ -42,11 +42,6 @@ export class ForumComponent {
         next: (profile) => this.onSuccess(profile, formContent, formTitle), 
         error: (err) => this.onError(err)
       });
-
-
-    if (this.form.value.content?.length == 0) {
-      window.alert("Please check your input!")
-    }
   } 
 
   private onSuccess(profile: Profile | undefined, formContent: string, formTitle: string): void {
