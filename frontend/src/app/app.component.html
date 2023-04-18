@@ -1,0 +1,12 @@
+<app-pagination
+  [current]="current"
+  [total]="total"
+  (goTo)="onGoTo($event)"
+  (next)="onNext($event)"
+  (previous)="onPrevious($event)"
+></app-pagination>
+
+<ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>
+  
