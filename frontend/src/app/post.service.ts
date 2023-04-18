@@ -64,11 +64,11 @@ export class PostService {
 
     makePost(id: number, title: string, content: string, user: Profile, votes: [], timestamp: string): Observable<Post> {
 
-        if (title.length == 0) {
-            return throwError(() => new Error("Unable to Post empty title, please check your input!"));
-        }
-
-        if (content.length == 0) {
+        if ((title.length == 0) && (content.length == 0)) {
+            return throwError(() => new Error("Unable to post empty title and empty content, please check your input!"));
+        } else if (title.length == 0) {
+            return throwError(() => new Error("Unable to post empty title, please check your input!"));
+        } else if (content.length == 0) {
             return throwError(() => new Error("Unable to Post empty content, please check your input!"));
         }
 
