@@ -72,6 +72,15 @@ export class PostService {
             return throwError(() => new Error("Unable to Post empty content, please check your input!"));
         }
 
+        // title is restricted to String(64) in the backend
+        if (title.length > 64) {
+            return throwError(() => new Error("Unable to post title longer than 64 characters, please check your input!"));
+        }
+
+        if (user.first_name == '' || user.last_name == '' || user.email == '' || user.pronouns == '') {
+            return throwError(() => new Error("Unable to post from user with incomplete profile, please check your input!"));
+        }
+
         if(user.id && user.first_name && user.last_name && user.email && user.pronouns){
             let u: User = {id: user.id, pid:user.pid, onyen: user.onyen, first_name:user.first_name, last_name:user.last_name, email:user.email, pronouns:user.pronouns, permissions: user.permissions};
             let post: Post = {id: id, title: title, content: content, user: u, votes: votes, timestamp:timestamp};
@@ -82,7 +91,7 @@ export class PostService {
                 return throwError(() => new Error("Unable to Post from unregistered user"));
             }
         }
-        return throwError(() => new Error("Unable to Post from user"));      
+        return throwError(() => new Error("Unable to Post from user"));
     }
 
     deletePost(id: number) {
