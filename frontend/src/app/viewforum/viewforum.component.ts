@@ -53,6 +53,7 @@ export class viewforumComponent {
       next: () => this.onSuccess(),
       error: (err) => this.onError(err)
     })
+    
   }
 
   private onSuccess(): void { // get new posts after deletion
@@ -65,7 +66,12 @@ export class viewforumComponent {
       this.post$.subscribe((items) => { //update number of pages after deletion
         this.numPosts = items.length;
         this.numPages = Math.ceil(items.length / this.itemsPerPage)
+        if(this.currentPage > this.numPages){
+          this.currentPage -=1;
+          this.updateItems()
+        }
       });
+      
   }
 
   private onError(err: HttpErrorResponse) {
