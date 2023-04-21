@@ -31,7 +31,10 @@ We represent all of these fields as mapped columns within the PostEntity. Howeve
   * Only admin users (Merritt Manager and Super User) may access a delete button when viewing the forum.
   * Delete button allows admin users to remove posts that may be insensitive, inappropriate, or against XL community guidelines. 
 
-Another design choice was implementing a paginator that allows users to view only five posts on a page at a time. Even though we could have allowed users to view more posts at time, we realized that limiting each page to five posts allowed users to browse the resources listed on the posts without feeling overwhelmed. The user would be able to navigate through the pages through a "next" and "previous" button at the bottom of the webpage; the further back they go in the posts and pages, the earlier the posts were made.
+* **Forum Pagination**
+  * Paginator that allows users to view only five posts on a page at a time. 
+  * Limiting each page to five posts allowed users to browse the resources listed on the posts without feeling overwhelmed.
+  * User is able to navigate through the pages through a "next" and "previous" button at the bottom of the webpage
 
 ## Development Concerns
 
@@ -73,6 +76,10 @@ Open your project locally, without opening it in a Dev Container at first, and f
 ## Future Work
 
 ### New Feature Ideas:
+* **User Post Deletion**:
+  * Allow users to delete posts they _they_ created
+  * Likely will be a similar implementation to admin-only delete
+  * Display a delete button on a post only if the logged-in user is the creator of said post
 * **Post Sorting**:
   * Add categories or tags to post entities, allowing users to sort posts by topic
 
