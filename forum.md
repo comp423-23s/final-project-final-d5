@@ -1,7 +1,7 @@
 ## Overview
 The CSXL forum is a tool for students and faculty to share and promote resources about technology and computer science. Having this forum would faciliate increased communication in what resources were helpful for a certain class, how a student could prepare for a class they are planning to take next semester, or just in general curiousity about topics in computer science and technology.
 
-As of now, registered CSXL users are able to:
+## Features available for Registered Users:
 * Post resources and information to the forum
 * View posts from other users
 * Delete posts from forum (***Admin Users Only***)
@@ -40,7 +40,9 @@ Clone the repository below, which contains the basic code to make and view a pos
 #### Clone the Repository
 ```
 git clone https://github.com/comp423-23s/final-project-final-d5.git
+
 ```
+Open your project locally, without opening it in a Dev Container at first, and follow the instructions to get started found in the project’s docs directory: docs/get_started.md
 
 ### Important Backend Files:
 * ***backend/api/post.py*** - contains all API routes for retrieving, deleting, and creating posts (documentation for each found in file)
@@ -62,8 +64,18 @@ As always, documentation on the code, code commits, and GitHub are excellent way
 
 ## Future Work
 
-In the future, we would like to implement more features for increased user convenience and accessibility. One feature would be to sort posts by categories: this would likely require posts to have keywords associated with them, and having a filter option to only show posts that contain those keywords. 
+###Features:
+* Post Sorting:
+  * Add categories or tags to post entities, allowing users to sort posts by topic
 
-Another feature that we would like to create is allowing users to save and favorite posts. Similar to social media, this would allow them to see which posts were most helpful to them or which posts they want to save to read and use later. 
+* Post Saving:
+  * Allow users to save posts that interest them to view later
 
-The last feature that we had in mind was creating upvotes for posts, which bump them to the top of the forum for other users to access more easily. Additionally, it would track when registered professors or teaching assistants endorsed a post to give more credibility to the usefulness of the resource. 
+* Post Voting:
+  * Enable users to vote for posts that they found particularly helpful
+  * Users can see # of votes each post has
+  * Posts with many votes appear higher in search results
+  * Indicate if a post has been votes for by an instructor/admin  
+  * Entity/database representation for votes is already implemented, just need ot create api route, service, and integrate with frontend
+
+
