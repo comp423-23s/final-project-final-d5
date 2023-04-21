@@ -71,13 +71,14 @@ Open your project locally, without opening it in a Dev Container at first, and f
 ## Future Work
 
 ### New Feature Ideas:
-* Post Sorting:
+* **Post Sorting:
   * Add categories or tags to post entities, allowing users to sort posts by topic
 
-* Post Saving:
-  * Allow users to save posts that interest them to view later
+* **Post Saving:
+  * Allow users to save posts that interest them
+  * Saved posts can be viewed by user at a later point in time
 
-* Post Voting:
+* **Post Voting:
   * Enable users to vote for posts that they found particularly helpful
   * Users can see # of votes each post has
   * Posts with many votes appear higher in search results
