@@ -64,7 +64,7 @@ As always, documentation on the code, code commits, and GitHub are excellent way
 
 ## Future Work
 
-###Features:
+### New Feature Ideas:
 * Post Sorting:
   * Add categories or tags to post entities, allowing users to sort posts by topic
 
