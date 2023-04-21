@@ -47,12 +47,14 @@ export class viewforumComponent {
   }
 
   onDelete(id: number): void {
-    this.postService
-    .deletePost(id)
-    .subscribe({ // stopping here when we use the /api/posts + id route)
-      next: () => this.onSuccess(),
-      error: (err) => this.onError(err)
-    })
+    if(confirm("Are you sure you want to delete this post?")) {
+      this.postService
+      .deletePost(id)
+      .subscribe({ // stopping here when we use the /api/posts + id route)
+        next: () => this.onSuccess(),
+        error: (err) => this.onError(err)
+      })
+    }
   }
 
   private onSuccess(): void { // get new posts after deletion
