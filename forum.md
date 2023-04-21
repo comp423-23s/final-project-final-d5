@@ -56,11 +56,17 @@ Open your project locally, without opening it in a Dev Container at first, and f
 * ***frontend/src/app/makeforum*** - component for creating a new forum post
 * ***frontend/src/app/pagination*** - component for pagination
 
-For starters, look through the files and trace through how a post is created and posted on the forum on both the frontend and backend. Most of the features implemented right now contain both parts. Understanding this process on both ends will give more clarity in how to implement improvements on the features, regardless of what side the changes end up.
 
-The next step, accordingly, would be to figure out if your proposed feature change involves frontend, backend, or both. This will determine how responsibilities are split in your team, or if you are working solo, the tasks you will need to complete. Implementing a steady workflow requires choosing which tasks to prioritize and doing them on time: using the project board on GitHub is a good way of ensuring you are staying on track. 
+### Tips for adding a new feature: 
+1) Look through the files and trace through how a post is created and posted on the forum on both the frontend and backend. 
+  * Most of the current features contain frontend and backend concerns. 
+  * Understanding this process on both ends will give more clarity in how to implement new features/improve existing features, regardless of if your proposed changes effect the frontend or backend.
 
-As always, documentation on the code, code commits, and GitHub are excellent ways of tracking where you are on the implementation and what task to tackle next -- especially when it involves a lot of dynamic parts. 
+2) Determine how responsibilities are split in your team, or if you are working solo, the tasks you will need to complete. 
+  * Implementing a steady workflow requires choosing which tasks to prioritize and doing them on time: using the project board on GitHub is a good way of ensuring you are staying on track. 
+
+3) Documentation on the code, code commits, and GitHub are excellent ways of tracking where you are on the implementation and what task to tackle next -- especially when it involves a lot of dynamic parts. 
+  * Good documentation allows for future devs to understand what changes you made / how they might be able to improve upon said changes 
 
 ## Future Work
 
