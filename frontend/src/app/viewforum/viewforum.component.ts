@@ -41,6 +41,9 @@ export class viewforumComponent {
     this.post$.subscribe((items) => { //set number of pages and number of total posts
       this.numPosts = items.length;
       this.numPages = Math.ceil(items.length / this.itemsPerPage)
+      if (this.numPages == 0) {
+        this.numPages = 1;
+      }
     });
     
     this.adminPermission$ = this.permission.check('admin.view', 'admin/')
@@ -53,6 +56,7 @@ export class viewforumComponent {
       next: () => this.onSuccess(),
       error: (err) => this.onError(err)
     })
+    
   }
 
   private onSuccess(): void { // get new posts after deletion
@@ -65,7 +69,15 @@ export class viewforumComponent {
       this.post$.subscribe((items) => { //update number of pages after deletion
         this.numPosts = items.length;
         this.numPages = Math.ceil(items.length / this.itemsPerPage)
+        if (this.numPages == 0) {
+          this.numPages = 1;
+        }
+        if(this.currentPage > this.numPages){
+          this.currentPage -=1;
+          this.updateItems()
+        }
       });
+      
   }
 
   private onError(err: HttpErrorResponse) {

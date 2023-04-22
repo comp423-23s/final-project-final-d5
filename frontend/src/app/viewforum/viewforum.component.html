@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="pagination">
-    <button class="pagination-button" *ngIf = "currentPage != 1"(click)="currentPage = currentPage - 1; updateItems()">Previous</button>
+    <button class="pagination-button" *ngIf = "(currentPage != 1 || 0)"(click)="currentPage = currentPage - 1; updateItems()">Previous</button>
     <h2 class="pagination-text">Page {{currentPage}} of {{numPages}}</h2>
     <button class="pagination-button" *ngIf = "currentPage < numPages"(click)="currentPage = currentPage + 1; updateItems()">Next</button>
   </div>
