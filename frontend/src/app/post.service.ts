@@ -46,20 +46,15 @@ export class PostService {
         return this.posts;
     }
 
-    getPosts(): Observable<Post[]> {
-        // let table: Observable<Post[]> = this.http.get<Post[]>("/api/forum"); // copied from the getCheckIns
     
-        // let new_table = table
-        //                     .pipe(
-        //                     map((x: Post[])=> {
-        //                     x.forEach(new_post => {
-        //                         new_post.timestamp = new Date(new_post.timestamp)
-        //                     });
-        //                     return x;
-        //                     })
-        //                 )
-        // return new_table
-        return this.http.get<Post[]>("/api/post"); 
+    getPosts(): Observable<Post[]> {
+        return this.http.get<Post[]>('/api/post').pipe(
+            map((posts: Post[]) => {
+                // Sort the posts in descending order based on timestamp
+                posts.sort((a: Post, b: Post) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+                return posts;
+            })
+        );
     }
 
     makePost(id: number, title: string, content: string, user: Profile, votes: [], timestamp: string): Observable<Post> {
