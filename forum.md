@@ -67,3 +67,15 @@ In the future, we would like to implement more features for increased user conve
 Another feature that we would like to create is allowing users to save and favorite posts. Similar to social media, this would allow them to see which posts were most helpful to them or which posts they want to save to read and use later. 
 
 The last feature that we had in mind was creating upvotes for posts, which bump them to the top of the forum for other users to access more easily. Additionally, it would track when registered professors or teaching assistants endorsed a post to give more credibility to the usefulness of the resource. 
+
+
+## How Did We Work on Sprint 2 Expectations:
+
+EXPECTATION 1: 
+We have thoroughly kept our project board updated with issues that have a sufficient amount of description. Every issue on the board is also linked to a pull request. Furthermore, every commit that is merged into stage in the form of a pull request has a detailed description. Every pull request also has one or multiple code reviews that have their own comments.
+
+We have used as much Angular Material components as we could. These Angular UI components can especially be seen in issue #30 ("UI/UX Improvements) on our project board under the "Done" header. This issue is linked to three pull requests #42, #43, #44 which reflect the UI/UX changes to the textboxes,  colors/themes and layout that we made using Angular UI components. 
+
+Issue #56 titled "56 - Updating docstrings to match google python style guide" in the "Done" header of our project board, reflects how we have met the project expectation: "Backend service classes should be tested using Pytest with mock data. Backend service classes and methods should be documented using docstrings following the Google Python Style Guide."** >>DF NEEDS TO CHECK THIS**
+
+We have also paid careful attention to which users have access to which functionalities. The personas of Merritt Manager and Super User
