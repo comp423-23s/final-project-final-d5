@@ -61,3 +61,18 @@ class PostService:
         self._session.delete(post)
         self._session.commit()
         return True
+
+    def update(self, post: Post, user: UserEntity) -> Post:
+        """Updates a post's approved_by_admin.
+
+        Args:
+            post: The post to create.
+            user: The user making the request.
+
+        Returns:
+            Post: The newly created post.
+        """
+        post_entity = PostEntity.from_model(post, user)
+        self._session.query(PostEntity).filter(PostEntity.post_id==post.id).update({PostEntity.approved_by_admin: post.approved_by_admin})
+        self._session.commit()
+        return post_entity.to_model()

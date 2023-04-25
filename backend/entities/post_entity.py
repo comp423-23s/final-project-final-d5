@@ -1,7 +1,7 @@
 '''Entity for all Posts in application'''
 
 
-from sqlalchemy import Integer, String, ForeignKey, Text
+from sqlalchemy import Integer, String, ForeignKey, Text, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import Self
 from .entity_base import EntityBase
@@ -30,6 +30,7 @@ class PostEntity(EntityBase):
     votes: Mapped[list[UserEntity]] = relationship(secondary=post_votes_table)
 
     timestamp: Mapped[str] = mapped_column(String(64), nullable=False, default='')
+    approved_by_admin: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
 
     @classmethod
     def from_model(cls, model: Post, user: UserEntity ) -> Self:
@@ -50,6 +51,7 @@ class PostEntity(EntityBase):
             user = user,
             votes= [],
             timestamp=model.timestamp,
+            approved_by_admin=model.approved_by_admin
 
             #user_svc.findUser(model.user)
             #[user_svc.findUser(vote) for vote in model.votes]
@@ -72,6 +74,7 @@ class PostEntity(EntityBase):
             user=self.user.to_model(),
             votes=vote_num,
             timestamp=self.timestamp,
+            approved_by_admin=self.approved_by_admin
         )
 
     def update(self, model: Post) -> None:

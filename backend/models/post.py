@@ -14,3 +14,4 @@ class Post(BaseModel):
     user: User
     votes: list[User] = []
     timestamp: str
+    approved_by_admin: bool = False
