@@ -41,14 +41,30 @@ export class PostService {
     constructor(private http: HttpClient) {}
     
     posts: Post[] = [];
+    deletedPosts: Post[] = [];
 
-    getPost() {
-        return this.posts;
+    getPost(id: number) {
+        for (let i = 0; i < this.posts.length; i++) {
+            if (this.posts[i].id == id) {
+                return this.posts[i];
+            }
+        }
+        return throwError(() => new Error("Post not found."));
     }
 
     
     getPosts(): Observable<Post[]> {
         return this.http.get<Post[]>('/api/post').pipe(
+            map((posts: Post[]) => {
+                // Sort the posts in descending order based on timestamp
+                posts.sort((a: Post, b: Post) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+                return posts;
+            })
+        );
+    }
+
+    getDeletedPosts(): Observable<Post[]>{
+        return this.http.get<Post[]>('/api/post').pipe( // need to fix routing @ warren
             map((posts: Post[]) => {
                 // Sort the posts in descending order based on timestamp
                 posts.sort((a: Post, b: Post) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());

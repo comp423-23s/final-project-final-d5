@@ -16,10 +16,12 @@ export class viewforumComponent {
   public adminPermission$: Observable<boolean>;
   public post$: Observable<Post[]>;
   public displayPost$: Observable<Post[]>;
+  public deletedPost$: Observable<Post []>
   public itemsPerPage: number = 5; // set the number of items to display per page
   public currentPage: number = 1;
   public numPosts: number;
   public numPages: number;
+  public postCopy: Post; // error since not being read
 
   public static Route = {
     path: 'viewforum',
@@ -29,10 +31,12 @@ export class viewforumComponent {
   constructor(
     private postService: PostService,
     private permission: PermissionService,
+    private postCopy: Post, //error since not being read
     ) {
     this.numPosts = 0; //numPosts and numPages must be set to zero initially
     this.numPages = 0;
     this.post$ = postService.getPosts()
+    this.deletedPost$ = postService.getDeletedPosts()
     this.displayPost$ = this.post$.pipe( //paginating total number of posts
       map((items) => {
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -51,6 +55,9 @@ export class viewforumComponent {
 
   onDelete(id: number): void {
     if(confirm("Are you sure you want to delete this post?")) {
+      let postCopy = this.postService.getPost(id); // make a copy of the post to be deleted
+      // this.deletedPost$.push(postCopy); // need to add this deleted post on the array, so we can refer to it later
+
       this.postService
       .deletePost(id)
       .subscribe({ // stopping here when we use the /api/posts + id route)
@@ -62,6 +69,7 @@ export class viewforumComponent {
 
   private onSuccess(): void { // get new posts after deletion
     this.post$ = this.postService.getPosts()
+
     this.displayPost$ = this.post$.pipe(
       map((items) => {
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;
