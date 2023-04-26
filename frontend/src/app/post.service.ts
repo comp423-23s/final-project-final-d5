@@ -30,6 +30,7 @@ export interface User{
     user: User;
     votes: User[];
     timestamp: string;
+    approved_by_admin: boolean;
 }
 @Injectable ({
     providedIn: 'root'
@@ -83,11 +84,11 @@ export class PostService {
 
         if(user.id && user.first_name && user.last_name && user.email && user.pronouns){
             let u: User = {id: user.id, pid:user.pid, onyen: user.onyen, first_name:user.first_name, last_name:user.last_name, email:user.email, pronouns:user.pronouns, permissions: user.permissions};
-            let post: Post = {id: id, title: title, content: content, user: u, votes: votes, timestamp:timestamp};
+            let post: Post = {id: id, title: title, content: content, user: u, votes: votes, timestamp:timestamp, approved_by_admin: false};
 
             try{
                 return this.http.post<Post>("/api/post", post);
-            }catch (err){
+            } catch (err){
                 return throwError(() => new Error("Unable to Post from unregistered user"));
             }
         }
@@ -97,6 +98,16 @@ export class PostService {
     deletePost(id: number) {
         return this.http.delete<Post>("/api/post/" + id)
         // return this.http.delete<Post>("/api/post/" + id) // what we had before (from the backend routes)
+    }
+
+    approvePost(post: Post) {
+        console.log("Made it to approvePost()")
+        post.approved_by_admin = true;
+        try {
+            return this.http.put<Post>("/api/post", post)
+        } catch (err) {
+            return throwError(() => new Error("Unable to approve post"));
+        }
     }
 
 }
