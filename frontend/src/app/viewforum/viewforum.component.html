@@ -10,10 +10,14 @@
       <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
           <h1 class="post-body">{{ post.title }}</h1>
           <h2 class="post-body">{{ post.content }}</h2>
-          
+          <div *ngIf="post.approved_by_admin" class="approved-post">
+            <i class="fa fa-star"></i>
+            <p>APPROVED</p>
+          </div>
           <div></div>
           <div></div>
           <td *ngIf="adminPermission$ | async"> <button (click)="onDelete(post.id)">Delete</button> </td>
+          <td *ngIf="adminPermission$ | async"> <button (click)="onApprove(post)">Approve</button> </td>
     </div>
   </div>
   <div class="pagination">

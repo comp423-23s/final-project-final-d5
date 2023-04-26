@@ -61,3 +61,23 @@ def delete(id: int, post_svc: PostService = Depends()) -> bool:
         return post_svc.delete(id=id)
     except:
         raise HTTPException(status_code=422, detail=str("Post not found"))
+
+@api.put("", response_model=Post, tags=['Post'])
+def put(post: Post, post_svc: PostService = Depends(), usr_svc: UserService = Depends()):
+    """Updates a post in the database with a star rating.
+
+        Args:
+            post: The post to update.
+            post_svc: The PostService object.
+
+        Returns:
+            Post: The newly created post.
+
+        Raises:
+            HTTPException: 422, If the user is not registered.
+    """
+    try:
+        user_entity = usr_svc.findUser(post.user)
+    except:
+        raise HTTPException(status_code=422, detail=str("User Not Registered"))
+    return post_svc.update(post, user_entity)
