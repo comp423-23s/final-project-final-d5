@@ -14,23 +14,23 @@ Aayush Mehra: https://github.com/aayush110
 The CSXL forum is a tool for students and faculty to share and promote resources about technology and computer science. Having this forum would faciliate increased communication in what resources were helpful for a certain class, how a student could prepare for a class they are planning to take next semester, or just in general curiousity about topics in computer science and technology.
 
 ## ✔️ Features available for Registered Users:
-* Post resources and information to the forum
+* ➕ **Post** resources and information to the forum
 
 <img src="images/post-screen.png" width = 500>
 
-* View posts from other users
+* 👀 **View** posts from other users
 
-* View only a given number of posts on a single page (through in-built pagination)
+* 👀 **View** only a given number of posts on a single page (through in-built pagination)
 
 <img src="images/student-user-view.png" width = 500>
 
-* Delete posts from forum (***Admin Users Only***)
+* ✖️ **Delete** posts from forum (***Admin Users Only***)
 
-* Give approval to an existing post (***Admin Users Only***)
+* ✔️ **Give approval** to an existing post (***Admin Users Only***)
 
 <img src="images/admin-approve-delete.png" width = 500>
 
-* View all approved posts in admin tab (***Admin Users Only***)
+* 👀 **View** all approved posts in admin tab (***Admin Users Only***)
 
 <img src="images/approved-posts.png" width = 500>
 
