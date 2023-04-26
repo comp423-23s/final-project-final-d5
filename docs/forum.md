@@ -22,6 +22,8 @@ The CSXL forum is a tool for students and faculty to share and promote resources
 
 * View only a given number of posts on a single page (through in-built pagination)
 
+<img src="images/student-user-view.png" width = 500>
+
 * Delete posts from forum (***Admin Users Only***)
 
 * Give approval to an existing post (***Admin Users Only***)
