@@ -93,7 +93,7 @@ export class PostService {
 
     approvePost(post: Post) {
         console.log("Made it to approvePost()")
-        post.approved_by_admin = true;
+        post.approved_by_admin = !post.approved_by_admin;
         try {
             return this.http.put<Post>("/api/post", post)
         } catch (err) {
