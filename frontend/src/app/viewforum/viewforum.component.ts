@@ -65,14 +65,14 @@ export class viewforumComponent {
     this.postService
     .approvePost(post)
     .subscribe({
-      next: () => this.onApproveSuccess(),
+      next: () => this.onApproveSuccess(post.user.first_name, post.user.last_name),
       error: (err) => this.onError(err)
     })
     
   }
 
-  private onApproveSuccess(): void {
-    window.alert('Thank you for approving')
+  private onApproveSuccess(first_name: string, last_name: string): void {
+    window.alert('Thank you for approving ' + first_name + " " + last_name + "!")
   }
 
   private onSuccess(): void { // get new posts after deletion

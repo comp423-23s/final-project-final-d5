@@ -43,8 +43,13 @@ export class PostService {
     
     posts: Post[] = [];
 
-    getPost() {
-        return this.posts;
+    getPost(id: number) {
+        for (let i = 0; i < this.posts.length; i++) {
+            if (this.posts[i].id == id) {
+                return this.posts[i];
+            }
+        }
+        return throwError(() => new Error("Post not found."));
     }
 
     
@@ -96,7 +101,6 @@ export class PostService {
     }
 
     approvePost(post: Post) {
-        console.log("Made it to approvePost()")
         post.approved_by_admin = true;
         try {
             return this.http.put<Post>("/api/post", post)
