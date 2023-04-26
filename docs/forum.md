@@ -19,7 +19,11 @@ The CSXL forum is a tool for students and faculty to share and promote resources
 <img src="images/post-screen.png" width = 500>
 
 * View posts from other users
+
 * Delete posts from forum (***Admin Users Only***)
+
+<img src="images/admin-approve-delete.png" width = 500>
+
 * Give approval to all existing posts (***Admin Users Only***)
 * View all approved posts in admin tab (***Admin Users Only***)
 * View only a given number of forums on a single page (through in-built pagination)
