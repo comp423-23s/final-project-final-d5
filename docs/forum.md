@@ -137,7 +137,7 @@ Every commit that is merged into stage in the form of a pull request has a detai
 
 We have used as much Angular Material components as we could. These Angular UI components can especially be seen in issue #30 ("UI/UX Improvements) on our project board under the "Done" header. This issue is linked to three pull requests #42, #43, #44 which reflect the UI/UX changes to the textboxes, colors/themes and layout that we made using Angular UI components.
 
-Issue #56 titled "56 - Updating docstrings to match google python style guide" in the "Done" header of our project board, reflects how we have met the project expectation: "Backend service classes should be tested using Pytest with mock data. Backend service classes and methods should be documented using docstrings following the Google Python Style Guide." ** >>DF NEEDS TO CHECK THIS **
+Issue #56 titled "56 - Updating docstrings to match google python style guide" in the "Done" header of our project board, reflects how we have met the project expectation: "Backend service classes should be tested using Pytest with mock data. Backend service classes and methods should be documented using docstrings following the Google Python Style Guide." 
 
 We have also paid careful attention to which users have access to which functionalities. The personas of Merritt Manager and Super User are the only users with the admin side functionalities of deleting posts, approving posts, and viewing a list of posts that have been approved.
 Stories that we have merged into stage are of usable, production quality that could actually be implemented into the XL website in the future!
@@ -166,18 +166,12 @@ We have integrated a full set of CRUDS (Create, Read, Update, Delete, and List o
 
 Admin users can also click on an approve button within a post to approve a post (update functionality). Then, in the admin tab they can view all the posts they have approved (list functionality). 
 
-Admin users also have the ability to delete posts that may be inappropriate for the XL (delete functionality). ** >>DOES THIS EVEN MAKE SENSE**
+Admin users also have the ability to delete posts that may be inappropriate for the XL (delete functionality).
 
 
 ### EXPECTATION 4:
-** >>things you must check: 
-Move everything into the docs folder
-Specify here How we even satisfied this expectation
-Make sure the language is ok
-Remove all bulleted things
-Change all headings and make them more specific
-Add screenshots for everything
-Remember to do a spell check
-Everyone must proof read before submission
-Make sure that all the bolded comments are removed**
+This file (which is essentially our main documentation file) is written in language that is meant for a developer to read. 
 
+We have used emoticons and easy-to-understand headings as well as a combination of paragraphs and bullets to make our documentation as clear as possible. 
+
+We have also used not one, but multiple screenshots in this file, to specificy the various functionalities of our website from either the end user or the administrator’s perspective. 
