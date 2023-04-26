@@ -16,7 +16,9 @@ export class AdminComponent implements OnInit {
     { label: 'Roles', path: '/admin/roles' },
   ];
 
-  constructor(public profileService: ProfileService) {
+  constructor(
+    public profileService: ProfileService,
+    ) {
     this.profile$ = profileService.profile$;
   }
 
