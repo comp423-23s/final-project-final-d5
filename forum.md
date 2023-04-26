@@ -1,20 +1,25 @@
-**Authors:**
+# CSXL Forum 
+**✏️ Authors:**
+
 William Astilla (technical lead): https://github.com/wastilla
+
 Angelina Su: https://github.com/angelinasu57
+
 Marten Warren Quadland: https://github.com/wquadland
+
 Aayush Mehra: https://github.com/aayush110
 
 
-## Overview
+## 🔍 Overview
 The CSXL forum is a tool for students and faculty to share and promote resources about technology and computer science. Having this forum would faciliate increased communication in what resources were helpful for a certain class, how a student could prepare for a class they are planning to take next semester, or just in general curiousity about topics in computer science and technology.
 
-## Features available for Registered Users:
+## ✔️ Features available for Registered Users:
 * Post resources and information to the forum
 * View posts from other users
 * Delete posts from forum (***Admin Users Only***)
 * View only a given number of forums on a single page (through in-built pagination)
 
-## Implementation notes
+##  💻 Implementation notes
 
 ### Database Representation:
 Post objects in our database contain the following fields:
@@ -43,11 +48,11 @@ We represent all of these fields as mapped columns within the PostEntity. Howeve
   * Limiting each page to five posts allowed users to browse the resources listed on the posts without feeling overwhelmed.
   * User is able to navigate through the pages through a "next" and "previous" button at the bottom of the webpage
 
-## How to Contribute
+## ✍️ How to Contribute 
 
 Clone the repository below, which contains the basic code to make and view a post, and features to modify and delete those posts.
 
-### Getting Started
+### 🐤 Getting Started
 
 #### Clone the Repository
 ```
@@ -56,13 +61,13 @@ git clone https://github.com/comp423-23s/final-project-final-d5.git
 ```
 Open your project locally, without opening it in a Dev Container at first, and follow the instructions to get started found in the project’s docs directory: docs/get_started.md
 
-### Important Backend Files:
+### ❗Important Backend Files:
 * ***backend/api/post.py*** - contains all API routes for retrieving, deleting, and creating posts (documentation for each found in file)
 * ***backend/services/post.py*** - contains all services called by API to mutate post database (creating post, deleting post, retrieving all posts)
 *  ***backend/models/post.py*** - data model for posts
 * ***backend/entities/post_entity.py*** - entity representation of Post in database
 
-### Important Frontend Files:
+### ❗Important Frontend Files:
 * ***frontend/src/app/post.service.ts*** - contains functions that make API calls, allowing the frontend to access and mutate database
 * ***frontend/src/app/viewforum*** - component for viewing posts 
 * ***frontend/src/app/makeforum*** - component for creating a new forum post
@@ -80,7 +85,7 @@ Open your project locally, without opening it in a Dev Container at first, and f
 * **Documentation on code, code commits, and GitHub** are excellent ways of tracking where you are on the implementation and what task to tackle next -- especially when it involves a lot of dynamic parts. 
   * Good documentation allows for future devs to understand what changes you made / how they might be able to improve upon said changes 
 
-## Future Work
+## 💭Future Work 
 
 ### New Feature Ideas:
 * **User Post Deletion**:
@@ -102,7 +107,7 @@ Open your project locally, without opening it in a Dev Container at first, and f
   * Entity/database representation for votes is already implemented, just need ot create api route, service, and integrate with frontend
 
 
-## How We Addressed Sprint 2 Expectations:
+## How We Addressed Sprint 2 Expectations :
 
 ### EXPECTATION 1: 
 We have thoroughly kept our project board updated with issues that have a sufficient amount of description. Every issue on the board is also linked to a pull request. 
@@ -118,9 +123,17 @@ Stories that we have merged into stage are of usable, production quality that co
 
 ### EXPECTATION 2:
 
-We implemented Angular UI components, where applicable, to make our website more user friendly and intuitive. On our main viewforum page (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/viewforum) we have added a green button for adding a new post to the forum. Furthermore, on this page, each post is in its own separate box where the name of the user is listed within the post as well as the date and time that they created the post. Each post also has a delete and approve button which are specific buttons that only admin personas can see. When users click on the green New Post button they are taken to a page with a user intuitive form where they can make a forum post with a title and content (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
+We implemented Angular UI components, where applicable, to make our website more user friendly and intuitive. On our main viewforum page (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/viewforum) we have added a green button for adding a new post to the forum. 
 
-We have also implemented friendly error messages throughout the website. In the viewforum part of the website, when one of our admin users tries to delete a post, they see a confirmation pop-up asking if they actually want to delete the post or not. If an admin user clicks on the approve button, they get a pop-up message thanking them for approving. All users have the ability to post when they click the green New Post button. If users have an empty Title or Content field, then users see a friendly error message that says “Unable to Post empty content, please check your input!”. If users have both, empty content and an empty title, then they receive the error message: “Unable to post empty title and empty content, please check your input!”. The page to make a forum post also has other user intuitive buttons - a “Back to Forum” that takes one to the page where they can view all forums. We also have a Submit button that turns green when one clicks over it to submit their post.
+Each post is displayed in its own separate box where the name of the user is listed within the post as well as the date and time that they created the post. 
+
+Each post also has a delete and approve button which are specific buttons that only admin personas can see. 
+
+When users click on the green New Post button they are taken to a page with a user intuitive form where they can make a forum post with a title and content (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
+
+We have also implemented friendly error messages throughout the website. In the viewforum part of the website, when one of our admin users tries to delete a post, they see a confirmation pop-up asking if they actually want to delete the post or not. If an admin user clicks on the approve button, they get a pop-up message thanking them for approving. 
+
+All users have the ability to post when they click the green New Post button. If users have an empty Title or Content field, then users see a friendly error message that says “Unable to Post empty content, please check your input!”. If users have both, empty content and an empty title, then they receive the error message: “Unable to post empty title and empty content, please check your input!”. The page to make a forum post also has other user intuitive buttons - a “Back to Forum” that takes one to the page where they can view all forums. We also have a Submit button that turns green when one clicks over it to submit their post.
 
 In order to have clear user instructions and make the website as easy to use as it can be for our users, we have included a short description of what the forum is and how a user can use it to post helpful resources, public coding projects, helpful programming tips and career advice, among other things. ** >>someone from d5 needs to cr**. This description is on the top part of the page where users can create a new post (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
 
