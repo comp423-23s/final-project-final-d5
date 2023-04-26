@@ -60,6 +60,21 @@ export class viewforumComponent {
     }
   }
 
+  onApprove(post: Post): void {
+    console.log("Made it to onApprove()")
+    this.postService
+    .approvePost(post)
+    .subscribe({
+      next: () => this.onApproveSuccess(),
+      error: (err) => this.onError(err)
+    })
+    
+  }
+
+  private onApproveSuccess(): void {
+    window.alert('Thank you for approving')
+  }
+
   private onSuccess(): void { // get new posts after deletion
     this.post$ = this.postService.getPosts()
     this.displayPost$ = this.post$.pipe(
