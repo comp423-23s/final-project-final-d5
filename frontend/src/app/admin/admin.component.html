@@ -9,8 +9,16 @@
 <mat-tab-nav-panel #tabPanel>
     <router-outlet></router-outlet>
 </mat-tab-nav-panel>
-<div class="post-outline" *ngFor="let post of ___ | async">
-<div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
-    <h1 class="post-body">{{ post.title }}</h1>
-    <h2 class="post-body">{{ post.content }}</h2>
-</div>
+
+<ul *ngIf="(post$| async)?.approved_by_admin; else loading">
+    <li *ngFor="let post of post$ | async">
+        <div> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
+        <h1>{{ post.title }}</h1>
+        <h2>{{ post.content }}</h2>
+    </li>
+ </ul>
+
+ <ng-template #loading>
+    <p>Post is not approved by admin</p>
+    <loading-component></loading-component>
+  </ng-template>
