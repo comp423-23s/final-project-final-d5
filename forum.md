@@ -43,7 +43,7 @@ We represent all of these fields as mapped columns within the PostEntity. Howeve
   * Limiting each page to five posts allowed users to browse the resources listed on the posts without feeling overwhelmed.
   * User is able to navigate through the pages through a "next" and "previous" button at the bottom of the webpage
 
-## Development Concerns
+## How to Contribute
 
 Clone the repository below, which contains the basic code to make and view a post, and features to modify and delete those posts.
 
@@ -102,26 +102,40 @@ Open your project locally, without opening it in a Dev Container at first, and f
   * Entity/database representation for votes is already implemented, just need ot create api route, service, and integrate with frontend
 
 
-How Did We Work on Sprint 2 Expectations:
+## How We Addressed Sprint 2 Expectations:
 
-EXPECTATION 1: 
-We have thoroughly kept our project board updated with issues that have a sufficient amount of description. Every issue on the board is also linked to a pull request. Furthermore, every commit that is merged into stage in the form of a pull request has a detailed description. Every pull request also has one or multiple code reviews that have their own comments.
+### EXPECTATION 1: 
+We have thoroughly kept our project board updated with issues that have a sufficient amount of description. Every issue on the board is also linked to a pull request. 
+
+Every commit that is merged into stage in the form of a pull request has a detailed description. Every pull request also has one or multiple code reviews that have their own comments.
+
 We have used as much Angular Material components as we could. These Angular UI components can especially be seen in issue #30 ("UI/UX Improvements) on our project board under the "Done" header. This issue is linked to three pull requests #42, #43, #44 which reflect the UI/UX changes to the textboxes, colors/themes and layout that we made using Angular UI components.
-Issue #56 titled "56 - Updating docstrings to match google python style guide" in the "Done" header of our project board, reflects how we have met the project expectation: "Backend service classes should be tested using Pytest with mock data. Backend service classes and methods should be documented using docstrings following the Google Python Style Guide."** >>DF NEEDS TO CHECK THIS**
+
+Issue #56 titled "56 - Updating docstrings to match google python style guide" in the "Done" header of our project board, reflects how we have met the project expectation: "Backend service classes should be tested using Pytest with mock data. Backend service classes and methods should be documented using docstrings following the Google Python Style Guide." ** >>DF NEEDS TO CHECK THIS **
+
 We have also paid careful attention to which users have access to which functionalities. The personas of Merritt Manager and Super User are the only users with the admin side functionalities of deleting posts, approving posts, and viewing a list of posts that have been approved.
 Stories that we have merged into stage are of usable, production quality that could actually be implemented into the XL website in the future!
 
-EXPECTATION 2:
-We have tried our best to use Angular UI components to make our website more user friendly and intuitive. On our main viewforum page (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/viewforum) we have added a green button for adding a new post to the forum. Furthermore, on this page, each post is in its own separate box where the name of the user is listed within the post as well as the date and time that they created the post. Each post also has a delete and approve button which are specific buttons that only admin personas can see. When users click on the green New Post button they are taken to a page with a user intuitive form where they can make a forum post with a title and content (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
+### EXPECTATION 2:
+
+We implemented Angular UI components, where applicable, to make our website more user friendly and intuitive. On our main viewforum page (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/viewforum) we have added a green button for adding a new post to the forum. Furthermore, on this page, each post is in its own separate box where the name of the user is listed within the post as well as the date and time that they created the post. Each post also has a delete and approve button which are specific buttons that only admin personas can see. When users click on the green New Post button they are taken to a page with a user intuitive form where they can make a forum post with a title and content (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
+
 We have also implemented friendly error messages throughout the website. In the viewforum part of the website, when one of our admin users tries to delete a post, they see a confirmation pop-up asking if they actually want to delete the post or not. If an admin user clicks on the approve button, they get a pop-up message thanking them for approving. All users have the ability to post when they click the green New Post button. If users have an empty Title or Content field, then users see a friendly error message that says “Unable to Post empty content, please check your input!”. If users have both, empty content and an empty title, then they receive the error message: “Unable to post empty title and empty content, please check your input!”. The page to make a forum post also has other user intuitive buttons - a “Back to Forum” that takes one to the page where they can view all forums. We also have a Submit button that turns green when one clicks over it to submit their post.
-In order to have clear user instructions and make the website as easy to use as it can be for our users, we have included a little description of what the forum is and how a user can use it to post helpful resources, public coding projects, helpful programming tips and career advice, among other things. ** >>someone from d5 needs to cr**. This description is on the top part of the page where users can create a new post (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
+
+In order to have clear user instructions and make the website as easy to use as it can be for our users, we have included a short description of what the forum is and how a user can use it to post helpful resources, public coding projects, helpful programming tips and career advice, among other things. ** >>someone from d5 needs to cr**. This description is on the top part of the page where users can create a new post (https://team-d5-comp423-23s.apps.cloudapps.unc.edu/forum).
+
 Also another cool thing - every button and feature that you see on our website actually works! Users cannot see anything that does not work :)
 
-EXPECTATION 3:
- We have also integrated a full set of CRUDS (Create, Read, Update, Delete, and List or Search) functionality for administrators. Our admin users, namely Super User and Merritt Manager have the ability to make a new forum post (create functionality). They also have the ability to view posts made by themselves and others (read functionality). Apart from this, admin users can also click on an approve button within a post to approve a post (update functionality). Then, in the admin tab they can view all the posts they have approved (list functionality). As mentioned earlier, admin users also have the ability to delete posts that may be inappropriate for the XL (delete functionality). ** >>DOES THIS EVEN MAKE SENSE**
+### EXPECTATION 3:
+
+We have integrated a full set of CRUDS (Create, Read, Update, Delete, and List or Search) functionality for administrators. Our admin users, namely Super User and Merritt Manager have the ability to make a new forum post (create functionality). They also have the ability to view posts made by themselves and others (read functionality). 
+
+Admin users can also click on an approve button within a post to approve a post (update functionality). Then, in the admin tab they can view all the posts they have approved (list functionality). 
+
+Admin users also have the ability to delete posts that may be inappropriate for the XL (delete functionality). ** >>DOES THIS EVEN MAKE SENSE**
 
 
-EXPECTATION 4:
+### EXPECTATION 4:
 ** >>things you must check: 
 Move everything into the docs folder
 Specify here How we even satisfied this expectation
