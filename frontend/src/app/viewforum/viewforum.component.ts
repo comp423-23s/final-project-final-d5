@@ -50,10 +50,22 @@ export class viewforumComponent {
   }
 
   onDelete(id: number): void {
+    if(confirm("Are you sure you want to delete this post?")) {
+      this.postService
+      .deletePost(id)
+      .subscribe({ // stopping here when we use the /api/posts + id route)
+        next: () => this.onSuccess(),
+        error: (err) => this.onError(err)
+      })
+    }
+  }
+
+  onApprove(post: Post): void {
+    console.log("Made it to onApprove()")
     this.postService
-    .deletePost(id)
-    .subscribe({ // stopping here when we use the /api/posts + id route)
-      next: () => this.onSuccess(),
+    .approvePost(post)
+    .subscribe({
+      next: () => this.onApproveSuccess(post.user.first_name, post.user.last_name),
       error: (err) => this.onError(err)
     })
     

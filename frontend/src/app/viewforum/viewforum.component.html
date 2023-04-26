@@ -19,6 +19,7 @@
           <td *ngIf="adminPermission$ | async"> <button (click)="onDelete(post.id)">Delete</button> </td>
           <td *ngIf="(adminPermission$ | async) && !post.approved_by_admin "> <button (click)="onApprove(post)">Approve</button> </td>
           <td *ngIf="(adminPermission$ | async) && post.approved_by_admin "> <button (click)="onApprove(post)">Unapprove</button> </td>
+
     </div>
   </div>
   <div class="pagination">
