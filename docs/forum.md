@@ -60,6 +60,10 @@ We represent all of these fields as mapped columns within the PostEntity. Howeve
   * Only admin users (Merritt Manager and Super User) may access a delete button when viewing the forum.
   * Delete button allows admin users to remove posts that may be insensitive, inappropriate, or against XL community guidelines. 
 
+* **Admin-only post approval**
+  * Only admin users (Merritt Manager and Super User) are able to approve posts via approve button.
+  * Post approval draws attention to posts that admin found especially helpful/interesting. 
+
 * **Forum Pagination**
   * Paginator that allows users to view only five posts on a page at a time. 
   * Limiting each page to five posts allowed users to browse the resources listed on the posts without feeling overwhelmed.
