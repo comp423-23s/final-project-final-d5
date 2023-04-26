@@ -101,7 +101,7 @@ export class PostService {
     }
 
     approvePost(post: Post) {
-        console.log("Made it to approvePost()")
+        // console.log("Made it to approvePost()")
         post.approved_by_admin = true;
         try {
             return this.http.put<Post>("/api/post", post)

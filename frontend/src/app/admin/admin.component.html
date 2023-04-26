@@ -10,6 +10,11 @@
     <router-outlet></router-outlet>
 </mat-tab-nav-panel>
 
+<div>
+    <h1>
+        Admin-Approved Posts
+    </h1>
+</div>
 <div class="post-outline" *ngFor="let post of post$ | async">
     <div *ngIf="post.approved_by_admin" class="approved-post">
         <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
