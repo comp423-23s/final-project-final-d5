@@ -15,7 +15,7 @@ The CSXL forum is a tool for students and faculty to share and promote resources
 
 ## ✔️ Features available for Registered Users:
 * Post resources and information to the forum
-<img src="images/post-screen.png">
+<img src="images/post-screen.png" width = 100>
 * View posts from other users
 * Delete posts from forum (***Admin Users Only***)
 * View only a given number of forums on a single page (through in-built pagination)
