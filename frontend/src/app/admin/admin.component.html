@@ -11,14 +11,16 @@
 </mat-tab-nav-panel>
 
 <div>
-    <h1>
+    <h1 class="approved-title">
         Admin-Approved Posts
     </h1>
 </div>
-<div class="post-outline" *ngFor="let post of post$ | async">
-    <div *ngIf="post.approved_by_admin" class="approved-post">
-        <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
-        <h1 class="post-body">{{ post.title }}</h1>
-        <h2 class="post-body">{{ post.content }}</h2>
+<div *ngFor="let post of post$ | async">
+    <div class="post-outline">
+        <div *ngIf="post.approved_by_admin" class="approved-post">
+            <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
+            <h1 class="post-body">{{ post.title }}</h1>
+            <h2 class="post-body">{{ post.content }}</h2>
+        </div>
     </div>
 </div>
