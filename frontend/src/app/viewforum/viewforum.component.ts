@@ -71,8 +71,22 @@ export class viewforumComponent {
     
   }
 
-  private onApproveSuccess(first_name: string, last_name: string): void {
-    window.alert('Thank you for approving ' + first_name + " " + last_name + "!")
+  onApprove(post: Post): void {
+    this.postService
+    .approvePost(post)
+    .subscribe({
+      next: () => this.onApproveSuccess(post),
+      error: (err) => this.onError(err)
+    })
+    
+  }
+
+  private onApproveSuccess(post: Post): void {
+    if (post.approved_by_admin) {
+      window.alert('Post has been approved')
+    } else {
+      window.alert('Post has been unapproved')
+    }
   }
 
   private onSuccess(): void { // get new posts after deletion

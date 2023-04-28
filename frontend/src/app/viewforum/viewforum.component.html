@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
   <div class="forum-header">
     <h1 class ="title">Forum</h1>
@@ -12,12 +13,13 @@
           <h2 class="post-body">{{ post.content }}</h2>
           <div *ngIf="post.approved_by_admin" class="approved-post">
             <i class="fa fa-star"></i>
-            <p>APPROVED</p>
           </div>
           <div></div>
           <div></div>
           <td *ngIf="adminPermission$ | async"> <button (click)="onDelete(post.id)">Delete</button> </td>
-          <td *ngIf="adminPermission$ | async"> <button (click)="onApprove(post)">Approve</button> </td>
+          <td *ngIf="(adminPermission$ | async) && !post.approved_by_admin "> <button (click)="onApprove(post)">Approve</button> </td>
+          <td *ngIf="(adminPermission$ | async) && post.approved_by_admin "> <button (click)="onApprove(post)">Unapprove</button> </td>
+
     </div>
   </div>
   <div class="pagination">
