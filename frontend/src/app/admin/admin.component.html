@@ -17,11 +17,11 @@
     </h1>
 </div>
 <div *ngFor="let post of post$ | async">
-    <div class="post-outline">
-        <div *ngIf="post.approved_by_admin" class="approved-post">
+    <div *ngIf="post.approved_by_admin" class="approved-post">
+        <div class="post-outline">
             <div class="forum-user-name"> {{ post.user.first_name}} {{ post.user.last_name}} {{ post.timestamp }}</div>
-            <h1 class="post-body">{{ post.title }}</h1>
-            <h2 class="post-body">{{ post.content }}</h2>
+        <h1 class="post-body">{{ post.title }}</h1>
+        <h2 class="post-body">{{ post.content }}</h2>
         </div>
     </div>
 </div>
