@@ -4,7 +4,7 @@ This API is used to create, retrieve, and delete posts for CSXL forum page"""
 
 from fastapi import APIRouter, Depends, HTTPException
 from ..services import PostService, UserService
-from ..models import Post
+from ..models import Post, User
 from .authentication import registered_user
 
 api = APIRouter(prefix="/api/post")
@@ -44,7 +44,7 @@ def getAll(post_svc: PostService = Depends()):
     return post_svc.getAll()
 
 @api.delete("/{id}", tags=['Post'])
-def delete(id: int, post_svc: PostService = Depends()) -> bool:
+def delete(id: int, post_svc: PostService = Depends(), subject: User = Depends(registered_user)) -> bool:
     """Delete a specific forum post from database by id
 
         Args:
@@ -58,12 +58,12 @@ def delete(id: int, post_svc: PostService = Depends()) -> bool:
             HTTPException: 422, If the post is not found.
     """
     try:
-        return post_svc.delete(id=id)
+        return post_svc.delete(id, subject)
     except:
         raise HTTPException(status_code=422, detail=str("Post not found"))
 
 @api.put("", response_model=Post, tags=['Post'])
-def put(post: Post, post_svc: PostService = Depends(), usr_svc: UserService = Depends()):
+def put(post: Post, post_svc: PostService = Depends(), usr_svc: UserService = Depends(), subject: User = Depends(registered_user)):
     """Updates a post in the database with a star rating.
 
         Args:
@@ -80,4 +80,4 @@ def put(post: Post, post_svc: PostService = Depends(), usr_svc: UserService = De
         user_entity = usr_svc.findUser(post.user)
     except:
         raise HTTPException(status_code=422, detail=str("User Not Registered"))
-    return post_svc.update(post, user_entity)
+    return post_svc.update(post, user_entity, subject)

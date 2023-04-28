@@ -10,6 +10,9 @@ from .permission import PermissionService, UserPermissionError
 
 class PostService:
 
+    _session: Session
+    _permission: PermissionService
+
     def __init__(self, session: Session = Depends(db_session), permission: PermissionService = Depends()):
         self._session = session
         self._permission = permission
@@ -42,7 +45,7 @@ class PostService:
         entities = self._session.scalars(query).all()
         return [entity.to_model() for entity in entities]
     
-    def delete(self, id: int) -> bool:
+    def delete(self, id: int, subject: User) -> bool:
         """Deletes a post.
 
         Args:
@@ -53,7 +56,10 @@ class PostService:
 
         Raises:
             Exception: If the post is not found.
+            PermissionError: If the subject does not have the required permission.
         """
+        self._permission.enforce(subject, 'user.delete', 'user/')
+
         query = select(PostEntity).filter_by(post_id=id)
         post = self._session.execute(query).scalar_one()
         if (post == None): 
@@ -62,7 +68,7 @@ class PostService:
         self._session.commit()
         return True
 
-    def update(self, post: Post, user: UserEntity) -> Post:
+    def update(self, post: Post, user: UserEntity, subject: User) -> Post:
         """Updates a post's approved_by_admin.
 
         Args:
@@ -71,7 +77,10 @@ class PostService:
 
         Returns:
             Post: The newly created post.
+            PermissionError: If the subject does not have the required permission.
         """
+        self._permission.enforce(subject, 'user.update', 'user/')
+
         post_entity = PostEntity.from_model(post, user)
         self._session.query(PostEntity).filter(PostEntity.post_id==post.id).update({PostEntity.approved_by_admin: post.approved_by_admin})
         self._session.commit()
