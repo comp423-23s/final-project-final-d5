@@ -32,5 +32,4 @@ export class AdminComponent implements OnInit {
   public showApproved(): Observable<any[]> {
     return this.post$
   }
-
 }

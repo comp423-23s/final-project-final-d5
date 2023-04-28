@@ -39,6 +39,10 @@
     text-align:left;
   }
 
+  .approved-title{
+    padding-left: 5px;
+  }
+  
   body{
     display: flex;
     flex-direction: column;
