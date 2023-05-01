@@ -61,17 +61,6 @@ export class viewforumComponent {
   }
 
   onApprove(post: Post): void {
-    console.log("Made it to onApprove()")
-    this.postService
-    .approvePost(post)
-    .subscribe({
-      next: () => this.onApproveSuccess(post.user.first_name, post.user.last_name),
-      error: (err) => this.onError(err)
-    })
-    
-  }
-
-  onApprove(post: Post): void {
     this.postService
     .approvePost(post)
     .subscribe({
